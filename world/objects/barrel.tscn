@@ -1,16 +1,32 @@
-[gd_scene load_steps=3 format=3 uid="uid://bojxjj3k0v64f"]
+[gd_scene load_steps=6 format=3 uid="uid://bojxjj3k0v64f"]
 
 [ext_resource type="Texture2D" uid="uid://cw1rwxt0drt2o" path="res://assets/images/Container/Barrel-Sheet.png" id="1_7ny0t"]
-[ext_resource type="Script" uid="uid://pcnfhy8nidqs" path="res://world/objects/barrel.gd" id="2_p08by"]
+[ext_resource type="Shader" uid="uid://dqy53ks5rtgp3" path="res://shader/outline_shader.gdshader" id="1_f7xxn"]
+[ext_resource type="Script" uid="uid://bnd1imxm8gaad" path="res://world/objects/barrel.gd" id="2_p08by"]
+[ext_resource type="PackedScene" uid="uid://d4dnmjx2vrq7a" path="res://world/objects/templates/tile_blocker.tscn" id="3_t1y7p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v7yx4"]
+shader = ExtResource("1_f7xxn")
+shader_parameter/outline_color = Color(1, 1, 1, 0)
+shader_parameter/outline_size = 1.0
+shader_parameter/alpha_threshold = 0.0
+shader_parameter/outline_samples = 4
+shader_parameter/shade_color = Color(1, 1, 1, 0)
 
 [node name="Barrel" type="Sprite2D"]
+material = SubResource("ShaderMaterial_v7yx4")
 texture = ExtResource("1_7ny0t")
 offset = Vector2(0, -8)
 hframes = 2
 script = ExtResource("2_p08by")
 
-[node name="TileMarker" type="Polygon2D" parent="."]
-unique_name_in_owner = true
-show_behind_parent = true
-color = Color(1, 0, 0, 0.243137)
-polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
+[node name="TileBlocker" parent="." instance=ExtResource("3_t1y7p")]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-8, -12, -3, -15, 3, -15, 8, -12, 8, 2, 3, 5, -3, 5, -8, 2)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

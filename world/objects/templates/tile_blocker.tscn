@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4dnmjx2vrq7a"]
+
+[ext_resource type="Script" uid="uid://djdhcl7jtomo8" path="res://world/objects/templates/tile_blocker.gd" id="1_hla1q"]
+
+[node name="TileBlocker" type="Polygon2D"]
+show_behind_parent = true
+color = Color(1, 0, 0, 0.243137)
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
+script = ExtResource("1_hla1q")

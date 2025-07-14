@@ -1,5 +1,6 @@
 extends "res://charakters/charakter_template.gd"
 
+var last_path: Array[Vector2i] = []
 var current_path: Array[Vector2i] = []
 var move_speed := 100.0
 var target_world_position: Vector2 = position
@@ -10,14 +11,22 @@ func _physics_process(delta: float) -> void:
 	_move(delta)
 
 func _update_path():
+	##
+	last_path = current_path
+	##
 	var mous_pos = get_global_mouse_position()
 	var clicked_tile = Utils.map.tile_map_floor.local_to_map(mous_pos)
 	var current_tile = Utils.map.tile_map_floor.local_to_map(global_position)
+	##
 	current_path = Utils.map.find_path(current_tile, clicked_tile)
 	if current_path.size() > 0:
 		current_path.remove_at(0)
 		if current_path.size() > 0:
 			target_world_position = Utils.map.tile_map_floor.map_to_local(current_path[0])
+	else:
+		var last_used_step = last_path.pop_front()
+		if last_used_step:
+			current_path.push_front(last_used_step)
 
 func _move(delta):
 	if current_path.size() == 0: return
