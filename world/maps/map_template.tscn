@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://cwquac8dl01mr"]
+[gd_scene load_steps=9 format=4 uid="uid://cwquac8dl01mr"]
 
 [ext_resource type="Texture2D" uid="uid://new1kvnp1qnx" path="res://assets/images/Tileset/isometric_blocks.png" id="1_rp0la"]
 [ext_resource type="Script" uid="uid://cdpy4x3hcaye1" path="res://world/maps/map_template.gd" id="1_tdldl"]
 [ext_resource type="Texture2D" uid="uid://b63ecteqdixs1" path="res://assets/images/Tileset/isometric_slabs.png" id="2_i67lf"]
 [ext_resource type="PackedScene" uid="uid://bx5dndcstcc7x" path="res://charakters/player/player.tscn" id="4_chl80"]
+[ext_resource type="PackedScene" uid="uid://bojxjj3k0v64f" path="res://world/objects/barrel.tscn" id="5_tdldl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chl80"]
 texture = ExtResource("1_rp0la")
@@ -70,3 +71,6 @@ unique_name_in_owner = true
 tile_set = SubResource("TileSet_jjsfw")
 
 [node name="Player" parent="." instance=ExtResource("4_chl80")]
+
+[node name="Barrel" parent="." instance=ExtResource("5_tdldl")]
+position = Vector2(64, 16)

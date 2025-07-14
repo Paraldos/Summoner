@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bojxjj3k0v64f"]
+
+[ext_resource type="Texture2D" uid="uid://cw1rwxt0drt2o" path="res://assets/images/Container/Barrel-Sheet.png" id="1_7ny0t"]
+[ext_resource type="Script" uid="uid://pcnfhy8nidqs" path="res://world/objects/barrel.gd" id="2_p08by"]
+
+[node name="Barrel" type="Sprite2D"]
+texture = ExtResource("1_7ny0t")
+offset = Vector2(0, -8)
+hframes = 2
+script = ExtResource("2_p08by")
+
+[node name="TileMarker" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+show_behind_parent = true
+color = Color(1, 0, 0, 0.243137)
+polygon = PackedVector2Array(-16, 0, 0, -8, 16, 0, 0, 8)
