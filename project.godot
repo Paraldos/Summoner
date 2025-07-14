@@ -11,5 +11,32 @@ config_version=5
 [application]
 
 config/name="Summoner"
+run/main_scene="uid://cwquac8dl01mr"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Utils="*res://singeltons/utils.tscn"
+PlayerData="*res://singeltons/player_data.tscn"
+
+[display]
+
+window/size/viewport_width=240
+window/size/viewport_height=160
+window/size/window_width_override=720
+window/size/window_height_override=480
+window/stretch/mode="canvas_items"
+window/stretch/aspect="keep_width"
+
+[input]
+
+left_click={
+"deadzone": 0.2,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(115, 20),"global_position":Vector2(124, 68),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0

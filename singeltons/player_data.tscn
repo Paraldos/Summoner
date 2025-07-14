@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bshh2bs8uoeh8"]
+
+[ext_resource type="Script" uid="uid://q4biq33t1chv" path="res://singeltons/player_data.gd" id="1_ilsxe"]
+
+[node name="PlayerData" type="Node"]
+script = ExtResource("1_ilsxe")
