@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Creature" load_steps=2 format=3 uid="uid://vhjp62g8v7f5"]
+
+[ext_resource type="Script" uid="uid://c2oil5kx7intj" path="res://creatures/creature.gd" id="1_m3g2m"]
+
+[resource]
+script = ExtResource("1_m3g2m")
+title = "Creature"
+type = 0
+resistances = Array[int]([])
+description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
+xp = 0
+level = 1
+attack = 45
+crit_chance = 4
+defense = 35
+max_hp = 40
+current_hp = null
+metadata/_custom_type_script = "uid://c2oil5kx7intj"

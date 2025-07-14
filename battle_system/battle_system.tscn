@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://c4yt2ap378d6i"]
+
+[ext_resource type="Texture2D" uid="uid://dvypsxg4a0yr2" path="res://assets/images/battleBackground.png" id="1_5fje4"]
+[ext_resource type="Script" uid="uid://c4o13jwve7h68" path="res://battle_system/battle_system.gd" id="1_q3xb3"]
+[ext_resource type="Texture2D" uid="uid://bsrdtauhwg4j0" path="res://assets/images/BattleGround.png" id="3_ysyts"]
+[ext_resource type="PackedScene" uid="uid://8xptwaqs5i1v" path="res://creatures/skeleton_display.tscn" id="6_33bsx"]
+
+[sub_resource type="Animation" id="Animation_ysyts"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlRoot:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_33bsx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ControlRoot:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_olghr"]
+_data = {
+&"RESET": SubResource("Animation_33bsx"),
+&"fade_in": SubResource("Animation_ysyts")
+}
+
+[node name="battle_system" type="CanvasLayer"]
+script = ExtResource("1_q3xb3")
+
+[node name="ControlRoot" type="Control" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayerRoot" type="AnimationPlayer" parent="ControlRoot"]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_olghr")
+}
+
+[node name="TextureRect" type="TextureRect" parent="ControlRoot"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_5fje4")
+metadata/_edit_lock_ = true
+
+[node name="BattleLinePlayer" type="Node2D" parent="ControlRoot"]
+position = Vector2(16, 76)
+
+[node name="Floor" type="Sprite2D" parent="ControlRoot/BattleLinePlayer"]
+position = Vector2(56, 10)
+texture = ExtResource("3_ysyts")
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
+position = Vector2(2, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D" instance=ExtResource("6_33bsx")]
+
+[node name="Marker2D2" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
+position = Vector2(34, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D2" instance=ExtResource("6_33bsx")]
+
+[node name="Marker2D3" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
+position = Vector2(66, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D3" instance=ExtResource("6_33bsx")]
+
+[node name="Marker2D4" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
+position = Vector2(98, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D4" instance=ExtResource("6_33bsx")]
+
+[node name="BattleLinePlayer2" type="Node2D" parent="ControlRoot"]
+position = Vector2(224, 32)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Floor" type="Sprite2D" parent="ControlRoot/BattleLinePlayer2"]
+position = Vector2(56, 10)
+rotation = 3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("3_ysyts")
+metadata/_edit_lock_ = true
+
+[node name="Marker2D" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
+position = Vector2(2, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D" instance=ExtResource("6_33bsx")]
+
+[node name="Marker2D2" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
+position = Vector2(34, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D2" instance=ExtResource("6_33bsx")]
+
+[node name="Marker2D3" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
+position = Vector2(66, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D3" instance=ExtResource("6_33bsx")]
+
+[node name="Marker2D4" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
+position = Vector2(98, 0)
+
+[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D4" instance=ExtResource("6_33bsx")]

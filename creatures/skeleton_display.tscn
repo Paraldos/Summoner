@@ -1,0 +1,65 @@
+[gd_scene load_steps=10 format=3 uid="uid://8xptwaqs5i1v"]
+
+[ext_resource type="PackedScene" uid="uid://dj4x8guyxftl4" path="res://creatures/creature_display.tscn" id="1_oc8j2"]
+[ext_resource type="Texture2D" uid="uid://der2qjb2tyyyo" path="res://assets/Tiny RPG Characters/Skeleton/Skeleton-Idle.png" id="2_hu43p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu43p"]
+atlas = ExtResource("2_hu43p")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mbgu7"]
+atlas = ExtResource("2_hu43p")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utkxb"]
+atlas = ExtResource("2_hu43p")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_akkqu"]
+atlas = ExtResource("2_hu43p")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfpj5"]
+atlas = ExtResource("2_hu43p")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbm6k"]
+atlas = ExtResource("2_hu43p")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ikhsh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu43p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mbgu7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utkxb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_akkqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfpj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbm6k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[node name="SkeletonDisplay" instance=ExtResource("1_oc8j2")]
+
+[node name="Idle" parent="Animations" index="0"]
+sprite_frames = SubResource("SpriteFrames_ikhsh")
+autoplay = "default"
+frame_progress = 0.450932
+
+[node name="ProgressBar" parent="." index="2"]
+offset_left = -11.0
+offset_right = 11.0

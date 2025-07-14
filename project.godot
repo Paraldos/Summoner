@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Utils="*res://singeltons/utils.tscn"
 PlayerData="*res://singeltons/player_data.tscn"
+BattleSystem="*res://battle_system/battle_system.tscn"
 
 [display]
 

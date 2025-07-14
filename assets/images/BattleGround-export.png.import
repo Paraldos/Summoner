@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpu08th328h3x"
-path="res://.godot/imported/chevron_down.png-fee75aa346f7cab0ba4899f9403dacaa.ctex"
+uid="uid://nbpeux4way5t"
+path="res://.godot/imported/BattleGround-export.png-b82d98523a7cab0ff8eb62b16b15bf49.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/UI/chevron_down.png"
-dest_files=["res://.godot/imported/chevron_down.png-fee75aa346f7cab0ba4899f9403dacaa.ctex"]
+source_file="res://assets/images/BattleGround-export.png"
+dest_files=["res://.godot/imported/BattleGround-export.png-b82d98523a7cab0ff8eb62b16b15bf49.ctex"]
 
 [params]
 
