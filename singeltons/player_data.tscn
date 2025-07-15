@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bshh2bs8uoeh8"]
+[gd_scene load_steps=4 format=3 uid="uid://bshh2bs8uoeh8"]
 
 [ext_resource type="Script" uid="uid://q4biq33t1chv" path="res://singeltons/player_data.gd" id="1_ilsxe"]
+[ext_resource type="Script" uid="uid://c2oil5kx7intj" path="res://creatures/templates/creature.gd" id="2_f8g2r"]
+[ext_resource type="Resource" uid="uid://vhjp62g8v7f5" path="res://creatures/skeleton.tres" id="3_6fgxd"]
 
 [node name="PlayerData" type="Node"]
 script = ExtResource("1_ilsxe")
+creatures = Array[ExtResource("2_f8g2r")]([ExtResource("3_6fgxd"), ExtResource("3_6fgxd"), ExtResource("3_6fgxd")])

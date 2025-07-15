@@ -14,9 +14,13 @@ extends Resource
 @export var attack: int = 45
 @export var crit_chance : int = 4
 @export var defense: int = 35
+@export var ini: int = 0
+var current_ini: int = 1
 
 @export var max_hp: int = 40
 @export var current_hp: int = max_hp
+
+var rng = RandomNumberGenerator.new()
 
 func add_XP(amount : int):
 	xp += amount
@@ -31,3 +35,6 @@ func level_up():
 	attack = ceil(attack * 1.2)
 	crit_chance += 1
 	defense = ceil(defense * 1.2)
+
+func roll_ini():
+	current_ini = rng.randi_range(1, 20) + ini

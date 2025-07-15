@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bojxjj3k0v64f"]
+[gd_scene load_steps=7 format=3 uid="uid://bojxjj3k0v64f"]
 
 [ext_resource type="Texture2D" uid="uid://cw1rwxt0drt2o" path="res://assets/images/Container/Barrel-Sheet.png" id="1_7ny0t"]
 [ext_resource type="Shader" uid="uid://dqy53ks5rtgp3" path="res://shader/outline_shader.gdshader" id="1_f7xxn"]
 [ext_resource type="Script" uid="uid://bnd1imxm8gaad" path="res://world/objects/barrel.gd" id="2_p08by"]
 [ext_resource type="PackedScene" uid="uid://d4dnmjx2vrq7a" path="res://world/objects/templates/tile_blocker.tscn" id="3_t1y7p"]
+[ext_resource type="Resource" uid="uid://dmc3xlfd8dhs" path="res://battle_system/battles/skeleton_battle.tres" id="4_v7yx4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_v7yx4"]
 shader = ExtResource("1_f7xxn")
@@ -19,6 +20,7 @@ texture = ExtResource("1_7ny0t")
 offset = Vector2(0, -8)
 hframes = 2
 script = ExtResource("2_p08by")
+battle = ExtResource("4_v7yx4")
 
 [node name="TileBlocker" parent="." instance=ExtResource("3_t1y7p")]
 

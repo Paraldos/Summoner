@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://8xptwaqs5i1v"]
 
-[ext_resource type="PackedScene" uid="uid://dj4x8guyxftl4" path="res://creatures/creature_display.tscn" id="1_oc8j2"]
+[ext_resource type="PackedScene" uid="uid://dj4x8guyxftl4" path="res://creatures/templates/creature_display.tscn" id="1_oc8j2"]
 [ext_resource type="Texture2D" uid="uid://der2qjb2tyyyo" path="res://assets/Tiny RPG Characters/Skeleton/Skeleton-Idle.png" id="2_hu43p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hu43p"]

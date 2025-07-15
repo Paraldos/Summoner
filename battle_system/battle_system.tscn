@@ -1,31 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://c4yt2ap378d6i"]
+[gd_scene load_steps=9 format=3 uid="uid://c4yt2ap378d6i"]
 
 [ext_resource type="Texture2D" uid="uid://dvypsxg4a0yr2" path="res://assets/images/battleBackground.png" id="1_5fje4"]
 [ext_resource type="Script" uid="uid://c4o13jwve7h68" path="res://battle_system/battle_system.gd" id="1_q3xb3"]
-[ext_resource type="Texture2D" uid="uid://bsrdtauhwg4j0" path="res://assets/images/BattleGround.png" id="3_ysyts"]
-[ext_resource type="PackedScene" uid="uid://8xptwaqs5i1v" path="res://creatures/skeleton_display.tscn" id="6_33bsx"]
-
-[sub_resource type="Animation" id="Animation_ysyts"]
-resource_name = "fade_in"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ControlRoot:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
+[ext_resource type="Theme" uid="uid://d1ojwyofcljvo" path="res://themes/main_theme.tres" id="2_oo3ix"]
+[ext_resource type="PackedScene" uid="uid://bxowdhsyd2f2t" path="res://battle_system/warband/warband.tscn" id="3_j0ups"]
+[ext_resource type="PackedScene" uid="uid://cy1cin5gh081q" path="res://battle_system/battle_ui/battle_ui.tscn" id="5_ysyts"]
 
 [sub_resource type="Animation" id="Animation_33bsx"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ControlRoot:modulate")
+tracks/0/path = NodePath("root:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -33,6 +19,22 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ysyts"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("root:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_olghr"]
@@ -44,7 +46,7 @@ _data = {
 [node name="battle_system" type="CanvasLayer"]
 script = ExtResource("1_q3xb3")
 
-[node name="ControlRoot" type="Control" parent="."]
+[node name="root" type="Control" parent="."]
 unique_name_in_owner = true
 modulate = Color(1, 1, 1, 0)
 layout_mode = 3
@@ -53,16 +55,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_oo3ix")
 metadata/_edit_lock_ = true
 
-[node name="AnimationPlayerRoot" type="AnimationPlayer" parent="ControlRoot"]
+[node name="AnimationPlayerRoot" type="AnimationPlayer" parent="root"]
 unique_name_in_owner = true
 root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_olghr")
 }
 
-[node name="TextureRect" type="TextureRect" parent="ControlRoot"]
+[node name="Background" type="TextureRect" parent="root"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -70,64 +73,18 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_5fje4")
+stretch_mode = 5
 metadata/_edit_lock_ = true
 
-[node name="BattleLinePlayer" type="Node2D" parent="ControlRoot"]
-position = Vector2(16, 76)
+[node name="WarbandPlayer" parent="root" instance=ExtResource("3_j0ups")]
+unique_name_in_owner = true
+position = Vector2(72, 72)
 
-[node name="Floor" type="Sprite2D" parent="ControlRoot/BattleLinePlayer"]
-position = Vector2(56, 10)
-texture = ExtResource("3_ysyts")
-metadata/_edit_lock_ = true
-
-[node name="Marker2D" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
-position = Vector2(2, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D" instance=ExtResource("6_33bsx")]
-
-[node name="Marker2D2" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
-position = Vector2(34, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D2" instance=ExtResource("6_33bsx")]
-
-[node name="Marker2D3" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
-position = Vector2(66, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D3" instance=ExtResource("6_33bsx")]
-
-[node name="Marker2D4" type="Marker2D" parent="ControlRoot/BattleLinePlayer"]
-position = Vector2(98, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer/Marker2D4" instance=ExtResource("6_33bsx")]
-
-[node name="BattleLinePlayer2" type="Node2D" parent="ControlRoot"]
-position = Vector2(224, 32)
+[node name="WarbandEnemy" parent="root" instance=ExtResource("3_j0ups")]
+unique_name_in_owner = true
+position = Vector2(168, 32)
 rotation = 3.14159
 scale = Vector2(1, -1)
 
-[node name="Floor" type="Sprite2D" parent="ControlRoot/BattleLinePlayer2"]
-position = Vector2(56, 10)
-rotation = 3.14159
-scale = Vector2(1, -1)
-texture = ExtResource("3_ysyts")
-metadata/_edit_lock_ = true
-
-[node name="Marker2D" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
-position = Vector2(2, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D" instance=ExtResource("6_33bsx")]
-
-[node name="Marker2D2" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
-position = Vector2(34, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D2" instance=ExtResource("6_33bsx")]
-
-[node name="Marker2D3" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
-position = Vector2(66, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D3" instance=ExtResource("6_33bsx")]
-
-[node name="Marker2D4" type="Marker2D" parent="ControlRoot/BattleLinePlayer2"]
-position = Vector2(98, 0)
-
-[node name="SkeletonDisplay" parent="ControlRoot/BattleLinePlayer2/Marker2D4" instance=ExtResource("6_33bsx")]
+[node name="BattleUi" parent="root" instance=ExtResource("5_ysyts")]
+layout_mode = 1

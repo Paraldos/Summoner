@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cd7rerheu74wn"]
+
+[ext_resource type="Texture2D" uid="uid://dsg3ym476ie87" path="res://assets/images/UI/chevron2.png" id="1_rkwvk"]
+[ext_resource type="Script" uid="uid://cv5nug13ucj4n" path="res://global_classes/btn.gd" id="2_u2cnd"]
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(18, 18)
+icon = ExtResource("1_rkwvk")
+icon_alignment = 1
+script = ExtResource("2_u2cnd")

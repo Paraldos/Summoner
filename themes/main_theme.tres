@@ -1,7 +1,39 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d1ojwyofcljvo"]
+[gd_resource type="Theme" load_steps=13 format=3 uid="uid://d1ojwyofcljvo"]
 
+[ext_resource type="Texture2D" uid="uid://brfx87crdxumo" path="res://assets/images/UI/button3.png" id="1_7ceur"]
+[ext_resource type="Texture2D" uid="uid://8v1xirbwjmqw" path="res://assets/images/UI/panel.png" id="1_8gw6x"]
 [ext_resource type="Texture2D" uid="uid://bdcfxf8q0plou" path="res://assets/images/UI/progressbar1.png" id="1_vu6l5"]
+[ext_resource type="Texture2D" uid="uid://bgpenq2ymkv1f" path="res://assets/images/UI/button2.png" id="2_uobgu"]
 [ext_resource type="Texture2D" uid="uid://cdusghs4yplbe" path="res://assets/images/UI/progressbar2.png" id="2_ydht1"]
+[ext_resource type="FontFile" uid="uid://b44hucxgpwky6" path="res://assets/fonts/PixelSimpel.otf" id="3_ydht1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_puucq"]
+texture = ExtResource("1_7ceur")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mjdo"]
+texture = ExtResource("2_uobgu")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5e0q"]
+texture = ExtResource("1_7ceur")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ceur"]
+texture = ExtResource("1_8gw6x")
+texture_margin_left = 7.0
+texture_margin_top = 7.0
+texture_margin_right = 7.0
+texture_margin_bottom = 7.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8gw6x"]
 texture = ExtResource("1_vu6l5")
@@ -18,5 +50,15 @@ texture_margin_right = 2.0
 texture_margin_bottom = 2.0
 
 [resource]
+default_font = ExtResource("3_ydht1")
+default_font_size = 8
+Button/colors/icon_hover_color = Color(0.776471, 0.317647, 0.592157, 1)
+Button/colors/icon_hover_pressed_color = Color(0.776471, 0.317647, 0.592157, 1)
+Button/colors/icon_normal_color = Color(0.341176, 0.447059, 0.466667, 1)
+Button/colors/icon_pressed_color = Color(0.776471, 0.317647, 0.592157, 1)
+Button/styles/hover = SubResource("StyleBoxTexture_puucq")
+Button/styles/normal = SubResource("StyleBoxTexture_1mjdo")
+Button/styles/pressed = SubResource("StyleBoxTexture_s5e0q")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_7ceur")
 ProgressBar/styles/background = SubResource("StyleBoxTexture_8gw6x")
 ProgressBar/styles/fill = SubResource("StyleBoxTexture_g21io")

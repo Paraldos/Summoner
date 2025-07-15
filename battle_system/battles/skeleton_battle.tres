@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Battle" load_steps=4 format=3 uid="uid://dmc3xlfd8dhs"]
+
+[ext_resource type="Script" uid="uid://dh5j6mjdm4smq" path="res://battle_system/battle.gd" id="1_l5b5x"]
+[ext_resource type="Script" uid="uid://c2oil5kx7intj" path="res://creatures/templates/creature.gd" id="1_lfiv4"]
+[ext_resource type="Resource" uid="uid://vhjp62g8v7f5" path="res://creatures/skeleton.tres" id="2_rhk3h"]
+
+[resource]
+script = ExtResource("1_l5b5x")
+creatures = Array[ExtResource("1_lfiv4")]([ExtResource("2_rhk3h"), ExtResource("2_rhk3h")])
+battle_difficulty = "Easy"
+victory_story_variable = ""
+defeat_story_variable = ""
+metadata/_custom_type_script = "uid://dh5j6mjdm4smq"
