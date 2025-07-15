@@ -2,8 +2,8 @@ class_name Creature
 extends Resource
 
 @export var title : String = "Creature"
-@export var type = GlobalEnums.CreatureTypes.Undead
-#@export var actions : Array[Action] = []
+@export var type = GlobalEnums.CreatureTypes.UNDEAD
+@export var actions : Array[Action] = []
 @export var display: PackedScene
 @export var resistances : Array[GlobalEnums.AttackTypes] = []
 @export var description: String = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
@@ -37,4 +37,4 @@ func level_up():
 	defense = ceil(defense * 1.2)
 
 func roll_ini():
-	current_ini = rng.randi_range(1, 20) + ini
+	current_ini = Utils.roll_dice() + ini

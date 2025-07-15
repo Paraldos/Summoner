@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://cy1cin5gh081q"]
+[gd_scene load_steps=7 format=3 uid="uid://cy1cin5gh081q"]
 
 [ext_resource type="Theme" uid="uid://d1ojwyofcljvo" path="res://themes/main_theme.tres" id="1_ir6ni"]
-[ext_resource type="Texture2D" uid="uid://bxablye4r5nf3" path="res://assets/images/UI/x.png" id="2_ir6ni"]
-[ext_resource type="Texture2D" uid="uid://dsg3ym476ie87" path="res://assets/images/UI/chevron2.png" id="2_o0ol1"]
-[ext_resource type="Script" uid="uid://cv5nug13ucj4n" path="res://global_classes/btn.gd" id="2_ocqa8"]
+[ext_resource type="Script" uid="uid://b7dun0x7qg43v" path="res://battle_system/battle_ui/battle_ui.gd" id="2_gumtr"]
+[ext_resource type="PackedScene" uid="uid://lv07sy4dkpep" path="res://battle_system/battle_ui/action_btn.tscn" id="3_j77uh"]
+[ext_resource type="PackedScene" uid="uid://b0e3bkimqe44d" path="res://battle_system/battle_ui/spell_btn.tscn" id="4_j77uh"]
+[ext_resource type="PackedScene" uid="uid://lyfqn0fdhfc8" path="res://battle_system/battle_ui/skip_turn_btn.tscn" id="5_strtl"]
+[ext_resource type="PackedScene" uid="uid://dlxruodax4nyc" path="res://battle_system/battle_ui/battle_description.tscn" id="6_j77uh"]
 
 [node name="BattleUi" type="MarginContainer"]
 anchors_preset = 12
@@ -18,6 +20,7 @@ theme_override_constants/margin_left = 3
 theme_override_constants/margin_top = 3
 theme_override_constants/margin_right = 3
 theme_override_constants/margin_bottom = 3
+script = ExtResource("2_gumtr")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 2
@@ -25,60 +28,31 @@ layout_mode = 2
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
 layout_mode = 2
 
-[node name="GridContainer" type="GridContainer" parent="HBoxContainer/PanelContainer"]
+[node name="ActionBtn" type="GridContainer" parent="HBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 3
 
-[node name="Btn" type="Button" parent="HBoxContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(18, 18)
+[node name="ActionBtn" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("3_j77uh")]
+unique_name_in_owner = true
 layout_mode = 2
-icon = ExtResource("2_o0ol1")
-icon_alignment = 1
-script = ExtResource("2_ocqa8")
-metadata/_custom_type_script = "uid://cv5nug13ucj4n"
 
-[node name="Btn2" type="Button" parent="HBoxContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(18, 18)
+[node name="ActionBtn2" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("3_j77uh")]
+unique_name_in_owner = true
 layout_mode = 2
-icon = ExtResource("2_o0ol1")
-icon_alignment = 1
-script = ExtResource("2_ocqa8")
-metadata/_custom_type_script = "uid://cv5nug13ucj4n"
+btn_index = 1
 
-[node name="Btn3" type="Button" parent="HBoxContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(18, 18)
+[node name="ActionBtn3" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("3_j77uh")]
+unique_name_in_owner = true
 layout_mode = 2
-icon = ExtResource("2_o0ol1")
-icon_alignment = 1
-script = ExtResource("2_ocqa8")
-metadata/_custom_type_script = "uid://cv5nug13ucj4n"
+btn_index = 2
 
-[node name="Btn4" type="Button" parent="HBoxContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(18, 18)
+[node name="SpellBtn" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("4_j77uh")]
 layout_mode = 2
-icon = ExtResource("2_o0ol1")
-icon_alignment = 1
-script = ExtResource("2_ocqa8")
-metadata/_custom_type_script = "uid://cv5nug13ucj4n"
 
-[node name="Btn5" type="Button" parent="HBoxContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(18, 18)
+[node name="SkipTurnBtn" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("5_strtl")]
 layout_mode = 2
-icon = ExtResource("2_o0ol1")
-icon_alignment = 1
-script = ExtResource("2_ocqa8")
-metadata/_custom_type_script = "uid://cv5nug13ucj4n"
 
-[node name="Btn6" type="Button" parent="HBoxContainer/PanelContainer/GridContainer"]
-custom_minimum_size = Vector2(18, 18)
+[node name="BattleDescription" parent="HBoxContainer" instance=ExtResource("6_j77uh")]
 layout_mode = 2
-icon = ExtResource("2_ir6ni")
-icon_alignment = 1
-script = ExtResource("2_ocqa8")
-metadata/_custom_type_script = "uid://cv5nug13ucj4n"
-
-[node name="PanelContainer2" type="PanelContainer" parent="HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3

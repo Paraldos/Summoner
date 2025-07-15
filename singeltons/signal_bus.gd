@@ -1,3 +1,7 @@
 extends Node
 
 signal update_hp_bar
+signal update_action_btn
+signal action_selected
+signal update_battle_description(text : String)
+signal next_turn

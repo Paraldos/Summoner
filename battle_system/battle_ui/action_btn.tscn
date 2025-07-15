@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://lv07sy4dkpep"]
+
+[ext_resource type="Texture2D" uid="uid://dsg3ym476ie87" path="res://assets/images/UI/chevron2.png" id="1_14lqa"]
+[ext_resource type="Script" uid="uid://y83yvo3ugdh" path="res://battle_system/battle_ui/action_btn.gd" id="2_14lqa"]
+
+[node name="ActionBtn" type="Button"]
+custom_minimum_size = Vector2(18, 18)
+toggle_mode = true
+icon = ExtResource("1_14lqa")
+icon_alignment = 1
+script = ExtResource("2_14lqa")
+metadata/_custom_type_script = "uid://cv5nug13ucj4n"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

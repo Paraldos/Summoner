@@ -51,7 +51,7 @@ texture_margin_bottom = 2.0
 
 [resource]
 default_font = ExtResource("3_ydht1")
-default_font_size = 8
+default_font_size = 7
 Button/colors/icon_hover_color = Color(0.776471, 0.317647, 0.592157, 1)
 Button/colors/icon_hover_pressed_color = Color(0.776471, 0.317647, 0.592157, 1)
 Button/colors/icon_normal_color = Color(0.341176, 0.447059, 0.466667, 1)

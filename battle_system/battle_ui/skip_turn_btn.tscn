@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://lyfqn0fdhfc8"]
+
+[ext_resource type="Texture2D" uid="uid://bxablye4r5nf3" path="res://assets/images/UI/x.png" id="1_0mx6n"]
+[ext_resource type="Script" uid="uid://yrw1e66v0rg3" path="res://battle_system/battle_ui/skip_turn_btn.gd" id="2_0mx6n"]
+
+[node name="SkipTurnBtn" type="Button"]
+custom_minimum_size = Vector2(18, 18)
+icon = ExtResource("1_0mx6n")
+icon_alignment = 1
+script = ExtResource("2_0mx6n")
+metadata/_custom_type_script = "uid://cv5nug13ucj4n"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

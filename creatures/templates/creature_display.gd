@@ -17,14 +17,14 @@ func _ready() -> void:
 	rng.randomize()
 	_offset_creature(true)
 	_on_update_hp_bar()
-	activate(false)
+	enable(false)
 	SignalBus.update_hp_bar.connect(_on_update_hp_bar)
 
 func _on_update_hp_bar():
 	hp_bar.max_value = creature_data.max_hp
 	hp_bar.value = creature_data.current_hp
 
-func activate(new_status : bool = false):
+func enable(new_status : bool = false):
 	active_icon.visible = new_status
 
 ########################################### position

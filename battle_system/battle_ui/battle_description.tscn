@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlxruodax4nyc"]
+
+[ext_resource type="Theme" uid="uid://d1ojwyofcljvo" path="res://themes/main_theme.tres" id="1_2av1q"]
+[ext_resource type="Script" uid="uid://cwyektcqnmmq0" path="res://battle_system/battle_ui/battle_description.gd" id="2_4bad2"]
+
+[node name="BattleDescription" type="PanelContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme = ExtResource("1_2av1q")
+script = ExtResource("2_4bad2")
+
+[node name="Label" type="Label" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 10)
+layout_mode = 2
+size_flags_vertical = 1
+autowrap_mode = 2
+text_overrun_behavior = 3
