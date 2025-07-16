@@ -13,12 +13,15 @@ func _ready():
 		modulate = Color('a53030')
 	SignalBus.action_selected.connect(_on_action_selected)
 	SignalBus.action_deselected.connect(_on_action_deselected)
+	SignalBus.start_action.connect(_on_action_deselected)
 
 func set_to_active(new_status : bool):
+	if parent.disabled: return
 	active_marker.visible = new_status
 
 func _on_action_selected():
 	_on_action_deselected()
+	if parent.disabled: return
 	if parent.player_creature:
 		if BattleSystem.active_action.target_player[parent.position_index]:
 			button.disabled = false
@@ -34,3 +37,4 @@ func _on_action_deselected():
 
 func _on_button_pressed() -> void:
 	BattleSystem.active_action.start(parent, BattleSystem.active_display)
+	SignalBus.start_action.emit()

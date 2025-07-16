@@ -18,6 +18,7 @@ func _on_update_action_btn():
 	if btn_index < creature_actions.size():
 		action = creature_actions[btn_index]
 	visible = action != null
+	disabled = !visible
 	if action:
 		icon = action.icon
 

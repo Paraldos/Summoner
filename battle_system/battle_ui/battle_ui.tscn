@@ -26,32 +26,34 @@ script = ExtResource("2_gumtr")
 layout_mode = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+custom_minimum_size = Vector2(72, 0)
 layout_mode = 2
 
-[node name="ActionBtn" type="GridContainer" parent="HBoxContainer/PanelContainer"]
+[node name="ActionBtns" type="GridContainer" parent="HBoxContainer/PanelContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/h_separation = 2
 theme_override_constants/v_separation = 2
 columns = 3
 
-[node name="ActionBtn" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("3_j77uh")]
+[node name="ActionBtn" parent="HBoxContainer/PanelContainer/ActionBtns" instance=ExtResource("3_j77uh")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ActionBtn2" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("3_j77uh")]
+[node name="ActionBtn2" parent="HBoxContainer/PanelContainer/ActionBtns" instance=ExtResource("3_j77uh")]
 unique_name_in_owner = true
 layout_mode = 2
 btn_index = 1
 
-[node name="ActionBtn3" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("3_j77uh")]
+[node name="ActionBtn3" parent="HBoxContainer/PanelContainer/ActionBtns" instance=ExtResource("3_j77uh")]
 unique_name_in_owner = true
 layout_mode = 2
 btn_index = 2
 
-[node name="SpellBtn" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("4_j77uh")]
+[node name="SpellBtn" parent="HBoxContainer/PanelContainer/ActionBtns" instance=ExtResource("4_j77uh")]
 layout_mode = 2
 
-[node name="SkipTurnBtn" parent="HBoxContainer/PanelContainer/ActionBtn" instance=ExtResource("5_strtl")]
+[node name="SkipTurnBtn" parent="HBoxContainer/PanelContainer/ActionBtns" instance=ExtResource("5_strtl")]
 layout_mode = 2
 
 [node name="BattleDescription" parent="HBoxContainer" instance=ExtResource("6_j77uh")]
