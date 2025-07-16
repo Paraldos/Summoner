@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://pa3d3wefogyw"]
+
+[ext_resource type="Script" uid="uid://bpwhnpdq8bx0t" path="res://creatures/templates/animations.gd" id="1_shxus"]
+
+[node name="Animations" type="Node2D"]
+script = ExtResource("1_shxus")
+
+[node name="Idle" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 2)
+
+[node name="Attack1" type="AnimatedSprite2D" parent="."]
+
+[node name="Attack2" type="AnimatedSprite2D" parent="."]
+
+[node name="Hit" type="AnimatedSprite2D" parent="."]
+
+[node name="Death" type="AnimatedSprite2D" parent="."]
