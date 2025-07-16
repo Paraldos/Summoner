@@ -3,7 +3,6 @@ class_name CreatureDisplay
 
 @onready var animations: Node2D = $Animations
 @onready var hp_bar: ProgressBar = %hpBar
-@onready var button: Button = %Button
 @onready var marker: Node2D = %Marker
 
 var rng = RandomNumberGenerator.new()
@@ -18,27 +17,22 @@ var player_creature : bool = false
 func _ready() -> void:
 	rng.randomize()
 	## prep creature
+	update_position()
 	_offset_creature(true)
-	_on_update_hp_bar()
 	enable(false)
-	## signals
-	SignalBus.update_hp_bar.connect(_on_update_hp_bar)
-
-func _on_update_hp_bar():
-	hp_bar.max_value = creature_data.max_hp
-	hp_bar.value = creature_data.current_hp
 
 ########################################### helper
 func enable(new_status : bool = false):
 	marker.set_to_active(new_status)
 
 ########################################### prep creature
+func update_position():
+	position.x = position_index * 32
+
 func _offset_creature(create_new_offset := false):
-	if create_new_offset:
-		craeture_offset = Vector2(
+	animations.position += Vector2(
 		rng.randi_range(display_offset.x, -display_offset.x),
 		rng.randi_range(display_offset.y, -display_offset.y))
-	animations.position += craeture_offset
 
 ########################################### animations
 func _hit_animation():

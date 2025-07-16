@@ -19,14 +19,6 @@ position = Vector2(-50, 0)
 [node name="Sprite2D" type="Sprite2D" parent="LeaderMarker"]
 texture = ExtResource("3_s68ll")
 
-[node name="BackMarker" type="Marker2D" parent="."]
+[node name="Creatures" type="Marker2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(-20, 0)
-
-[node name="MiddleMarker" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(10, 0)
-
-[node name="FrontMarker" type="Marker2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(40, 0)

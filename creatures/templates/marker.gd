@@ -6,6 +6,8 @@ extends Node2D
 
 @export var parent : CreatureDisplay
 
+signal marker_button_pressed
+
 func _ready():
 	button.disabled = true
 	if parent.player_creature:
@@ -32,3 +34,6 @@ func _on_action_selected():
 func _on_action_deselected():
 	button.disabled = true
 	target_marker.visible = false
+
+func _on_button_pressed() -> void:
+	marker_button_pressed.emit()
