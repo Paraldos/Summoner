@@ -37,10 +37,6 @@ func next_round():
 	list_of_all_involved_creatures.sort_custom(func(a, b):
 		return a.creature_data.current_ini > b.creature_data.current_ini
 	)
-
-	for bert in list_of_all_involved_creatures:
-		print(bert.creature_data.current_ini)
-
 	next_turn()
 
 func next_turn():

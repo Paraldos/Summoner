@@ -6,6 +6,16 @@ extends Resource
 @export var stance = GlobalEnums.Stances.ATTACK
 @export var type = GlobalEnums.AttackTypes.SLASHING
 @export var icon : CompressedTexture2D
+@export var target_player : Array[bool] = [
+	true,
+	true,
+	true
+]
+@export var target_enemy : Array[bool] = [
+	true,
+	true,
+	true
+]
 
 @export_range(0.0, 1.0, 0.05) var dmg := 1.0
 @export_range(0.0, 1.0, 0.05) var heal := 1.0

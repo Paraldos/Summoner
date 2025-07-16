@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://dj4x8guyxftl4"]
+[gd_scene load_steps=14 format=3 uid="uid://dj4x8guyxftl4"]
 
 [ext_resource type="Theme" uid="uid://d1ojwyofcljvo" path="res://themes/main_theme.tres" id="1_a50jm"]
 [ext_resource type="Texture2D" uid="uid://b28equm5v02ns" path="res://assets/images/UI/chevron6.png" id="1_a5374"]
 [ext_resource type="Script" uid="uid://q0ge0fx8otv7" path="res://creatures/templates/creature_display.gd" id="1_ko82b"]
+[ext_resource type="Texture2D" uid="uid://bthybf72w0hqq" path="res://assets/images/UI/display_marker.png" id="5_cba3y"]
 
 [sub_resource type="Animation" id="Animation_ko82b"]
 length = 0.001
@@ -41,6 +42,43 @@ _data = {
 &"loop": SubResource("Animation_a5374")
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cba3y"]
+content_margin_left = 3.0
+content_margin_top = 0.0
+content_margin_right = 3.0
+content_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b64so"]
+texture = ExtResource("5_cba3y")
+texture_margin_left = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cba3y"]
+texture = ExtResource("5_cba3y")
+texture_margin_left = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mlkih"]
+texture = ExtResource("5_cba3y")
+texture_margin_left = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aapv0"]
+texture = ExtResource("5_cba3y")
+texture_margin_left = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 6.0
+
+[sub_resource type="Theme" id="Theme_mlkih"]
+Button/styles/disabled = SubResource("StyleBoxEmpty_cba3y")
+Button/styles/hover = SubResource("StyleBoxTexture_b64so")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_cba3y")
+Button/styles/normal = SubResource("StyleBoxTexture_mlkih")
+Button/styles/pressed = SubResource("StyleBoxTexture_aapv0")
+
 [node name="CreatureDisplay" type="Node2D"]
 script = ExtResource("1_ko82b")
 
@@ -70,10 +108,26 @@ position = Vector2(0, 2)
 
 [node name="hpBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -8.0
+offset_left = -12.0
 offset_top = 16.0
-offset_right = 8.0
+offset_right = 12.0
 offset_bottom = 24.0
 theme = ExtResource("1_a50jm")
 value = 50.0
 show_percentage = false
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme = SubResource("Theme_mlkih")

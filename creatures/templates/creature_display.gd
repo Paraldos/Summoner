@@ -4,36 +4,60 @@ class_name CreatureDisplay
 @onready var active_icon: Sprite2D = %ActiveIcon
 @onready var animations: Node2D = $Animations
 @onready var hp_bar: ProgressBar = %hpBar
+@onready var button: Button = $Button
 
 var rng = RandomNumberGenerator.new()
-var display_offset = Vector2(2, 4)
+var display_offset = Vector2(1, 3)
 var hit_offset = Vector2(-10, 2)
 var attack_offset = Vector2(20, -5)
-var index : int
+var position_index : int
 var craeture_offset := Vector2.ZERO
 var creature_data : Resource
+var player_creature : bool = false
 
 func _ready() -> void:
+	## variables
+	button.disabled = true
 	rng.randomize()
+	## prep creature
 	_offset_creature(true)
+	_init_faction(player_creature)
 	_on_update_hp_bar()
 	enable(false)
+	## signals
 	SignalBus.update_hp_bar.connect(_on_update_hp_bar)
+	SignalBus.action_selected.connect(_on_action_selected)
+
+func _on_action_selected():
+	button.disabled = true
+	if player_creature:
+		if BattleSystem.currently_selected_action.target_player[position_index]:
+			button.disabled = false
+	else:
+		if BattleSystem.currently_selected_action.target_enemy[position_index]:
+			button.disabled = false
 
 func _on_update_hp_bar():
 	hp_bar.max_value = creature_data.max_hp
 	hp_bar.value = creature_data.current_hp
 
+########################################### helper
 func enable(new_status : bool = false):
 	active_icon.visible = new_status
 
-########################################### position
+########################################### prep creature
+func _init_faction(player_creature : bool):
+	if player_creature:
+		pass
+	else:
+		pass
+
 func _offset_creature(create_new_offset := false):
 	if create_new_offset:
 		craeture_offset = Vector2(
 		rng.randi_range(display_offset.x, -display_offset.x),
 		rng.randi_range(display_offset.y, -display_offset.y))
-	position += craeture_offset
+	animations.position += craeture_offset
 
 ########################################### animations
 func _hit_animation():

@@ -80,6 +80,7 @@ metadata/_edit_lock_ = true
 [node name="WarbandPlayer" parent="root" instance=ExtResource("3_j0ups")]
 unique_name_in_owner = true
 position = Vector2(72, 72)
+player_warband = true
 
 [node name="WarbandEnemy" parent="root" instance=ExtResource("3_j0ups")]
 unique_name_in_owner = true
