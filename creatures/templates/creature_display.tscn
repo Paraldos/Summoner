@@ -17,3 +17,5 @@ parent = NodePath("..")
 [node name="Marker" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_8q5ft")]
 unique_name_in_owner = true
 parent = NodePath("..")
+
+[editable path="Animations"]
