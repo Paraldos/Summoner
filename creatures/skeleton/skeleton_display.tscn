@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://8xptwaqs5i1v"]
+[gd_scene load_steps=34 format=3 uid="uid://8xptwaqs5i1v"]
 
 [ext_resource type="PackedScene" uid="uid://dj4x8guyxftl4" path="res://creatures/templates/creature_display.tscn" id="1_oc8j2"]
 [ext_resource type="Texture2D" uid="uid://der2qjb2tyyyo" path="res://assets/Tiny RPG Characters/Skeleton/Skeleton-Idle.png" id="2_hu43p"]
@@ -102,7 +102,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lv6af")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 8.0
 }]
@@ -159,45 +159,9 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8byov")
 }],
-"loop": true,
-"name": &"default",
-"speed": 9.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ly65s"]
-atlas = ExtResource("5_utwtj")
-region = Rect2(0, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4phdq"]
-atlas = ExtResource("5_utwtj")
-region = Rect2(100, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4iqgb"]
-atlas = ExtResource("5_utwtj")
-region = Rect2(200, 0, 100, 100)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2hxsu"]
-atlas = ExtResource("5_utwtj")
-region = Rect2(300, 0, 100, 100)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_5cv6u"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ly65s")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4phdq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4iqgb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2hxsu")
-}],
 "loop": false,
 "name": &"default",
-"speed": 7.0
+"speed": 9.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qfgi6"]
@@ -239,8 +203,8 @@ animations = [{
 [node name="SkeletonDisplay" instance=ExtResource("1_oc8j2")]
 
 [node name="Idle" parent="Animations" index="0"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_ly65s")
-autoplay = "default"
 frame_progress = 0.817538
 
 [node name="Attack1" parent="Animations" index="1"]
@@ -254,10 +218,9 @@ sprite_frames = SubResource("SpriteFrames_4iqgb")
 frame_progress = 0.17987
 
 [node name="Hit" parent="Animations" index="3"]
-visible = false
-sprite_frames = SubResource("SpriteFrames_5cv6u")
-frame = 3
-frame_progress = 1.0
+texture = ExtResource("5_utwtj")
+hframes = 4
+frame = 1
 
 [node name="Death" parent="Animations" index="4"]
 visible = false

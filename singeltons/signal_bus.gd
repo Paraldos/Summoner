@@ -6,3 +6,4 @@ signal action_selected
 signal action_deselected
 signal update_battle_description(text : String)
 signal next_turn
+signal end_action

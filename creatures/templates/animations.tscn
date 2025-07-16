@@ -3,15 +3,23 @@
 [ext_resource type="Script" uid="uid://bpwhnpdq8bx0t" path="res://creatures/templates/animations.gd" id="1_shxus"]
 
 [node name="Animations" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_shxus")
 
 [node name="Idle" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, 2)
+y_sort_enabled = true
 
 [node name="Attack1" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 
 [node name="Attack2" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
 
-[node name="Hit" type="AnimatedSprite2D" parent="."]
+[node name="Hit" type="Sprite2D" parent="."]
+y_sort_enabled = true
 
 [node name="Death" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+
+[connection signal="animation_finished" from="Attack1" to="." method="_on_attack_1_animation_finished"]
+[connection signal="animation_finished" from="Attack2" to="." method="_on_attack_2_animation_finished"]

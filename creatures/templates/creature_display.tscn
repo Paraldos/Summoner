@@ -6,16 +6,23 @@
 [ext_resource type="PackedScene" uid="uid://uxqsjif0a3vi" path="res://creatures/templates/marker.tscn" id="3_8q5ft"]
 
 [node name="CreatureDisplay" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ko82b")
 
-[node name="Animations" parent="." instance=ExtResource("2_b64so")]
+[node name="Animations" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_b64so")]
+parent = NodePath("..")
 
 [node name="hpBar" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_8q5ft")]
 unique_name_in_owner = true
+offset_left = -14.0
+offset_top = 19.0
+offset_right = 14.0
+offset_bottom = 27.0
 parent = NodePath("..")
 
 [node name="Marker" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_8q5ft")]
 unique_name_in_owner = true
+position = Vector2(0, 16)
 parent = NodePath("..")
 
 [editable path="Animations"]

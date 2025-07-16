@@ -14,7 +14,7 @@ func _astar_base_setup():
 	var origin = used_rect.position
 	var size = used_rect.size
 	astar.region = Rect2i(origin, size)
-	astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
+	astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_ONLY_IF_NO_OBSTACLES
 	astar.update()
 
 func _astar_map_setup() -> void:

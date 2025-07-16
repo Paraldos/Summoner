@@ -13,7 +13,7 @@ func _on_action_selected():
 
 func _on_update_action_btn():
 	button_pressed = false
-	var creature_actions = BattleSystem.currently_active_creature.creature_data.actions
+	var creature_actions = BattleSystem.active_display.creature.actions
 	action = null
 	if btn_index < creature_actions.size():
 		action = creature_actions[btn_index]
@@ -22,7 +22,7 @@ func _on_update_action_btn():
 		icon = action.icon
 
 func _on_pressed() -> void:
-	BattleSystem.currently_selected_action = action
+	BattleSystem.active_action = action
 	SignalBus.action_selected.emit()
 	button_pressed = true
 

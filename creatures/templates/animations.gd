@@ -1,33 +1,27 @@
 extends Node2D
 
-var parent : CreatureDisplay
-var hit_offset = Vector2(-10, 2)
-var attack_offset = Vector2(20, -5)
+@export var parent : CreatureDisplay
+var hit_offset := Vector2(-10, 5)
+var attack_offset := Vector2(5, -10)
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	_offset_creature()
+	if parent.player_creature == false:
+		attack_offset.y *= -1
+		hit_offset.y *= -1
+	_play_animation('Idle')
+	SignalBus.end_action.connect(_on_end_action)
+
+func _on_end_action():
+	_play_animation('Idle')
+	_tween_pos(Vector2.ZERO, 0.2)
 
 func _offset_creature():
 	var display_offset = Vector2(1, 3)
 	position += Vector2(
 		rng.randi_range(display_offset.x, -display_offset.x),
 		rng.randi_range(display_offset.y, -display_offset.y))
-
-func _hit_animation():
-	await Utils.timer(0.1)
-	_tween_pos(hit_offset, 0.1)
-	_play_animation('Hit')
-
-func _attack_animation():
-	if rng.randi_range(1, 2) == 1:
-		_play_animation('Attack1')
-	else:
-		_play_animation('Attack2')
-	_tween_pos(attack_offset, 0.1)
-
-func _death_animation():
-	_play_animation('Death')
 
 func _tween_pos(target_pos: Vector2, time: float):
 	var tween = create_tween()
@@ -41,3 +35,26 @@ func _play_animation(animation_name : String) -> void:
 		animation.stop()
 	if selected_animation is AnimatedSprite2D:
 		selected_animation.play()
+
+########################################### animations
+func hit_animation():
+	await Utils.timer(0.1)
+	_tween_pos(hit_offset, 0.1)
+	_play_animation('Hit')
+
+func attack_animation():
+	if rng.randi_range(1, 2) == 1:
+		_play_animation('Attack1')
+	else:
+		_play_animation('Attack2')
+	_tween_pos(attack_offset, 0.1)
+
+func death_animation():
+	_play_animation('Death')
+
+########################################### animation finished
+func _on_attack_1_animation_finished() -> void:
+	BattleSystem.active_action.use()
+
+func _on_attack_2_animation_finished() -> void:
+	BattleSystem.active_action.use()

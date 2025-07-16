@@ -6,15 +6,15 @@ extends Node2D
 
 func add_creatures(list_of_creatures : Array[Creature]):
 	for position_index in list_of_creatures.size():
-		var creature_data = list_of_creatures[position_index]
-		if creature_data == null: return
-		add_creature(creature_data, position_index)
+		var creature = list_of_creatures[position_index]
+		if creature == null: return
+		add_creature(creature, position_index)
 
-func add_creature(creature_data : Creature, position_index : int):
+func add_creature(creature : Creature, position_index : int):
 	## create creature
-	var creature_display = creature_data.display.instantiate()
+	var creature_display = creature.display.instantiate()
 	creature_display.position_index = position_index
-	creature_display.creature_data = creature_data
+	creature_display.creature = creature
 	creature_display.player_creature = player_warband
 	## logistic
 	creatures.add_child(creature_display)

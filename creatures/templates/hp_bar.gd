@@ -7,5 +7,5 @@ func _ready() -> void:
 	_on_update_hp_bar()
 
 func _on_update_hp_bar():
-	max_value = parent.creature_data.max_hp
-	value = parent.creature_data.current_hp
+	max_value = parent.creature.max_hp
+	value = parent.creature.current_hp
