@@ -7,10 +7,7 @@ extends Node2D
 
 func _ready():
 	button.disabled = true
-	if parent.player_creature:
-		modulate = Color('c65197')
-	else:
-		modulate = Color('a53030')
+	modulate = Color('a53030')
 	SignalBus.action_selected.connect(_on_action_selected)
 	SignalBus.action_deselected.connect(_on_action_deselected)
 	SignalBus.start_action.connect(_on_action_deselected)
@@ -22,6 +19,7 @@ func set_to_active(new_status : bool):
 func _on_action_selected():
 	_on_action_deselected()
 	if parent.disabled: return
+	if BattleSystem.active_display == parent: return
 	if parent.player_creature:
 		if BattleSystem.active_action.target_player[parent.position_index]:
 			button.disabled = false
