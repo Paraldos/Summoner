@@ -37,6 +37,6 @@ func use():
 	target.current_hp -= max(0, dmg)
 	# inflict status
 	# heald
-	pass
 	SignalBus.update_hp_bar.emit()
 	SignalBus.end_action.emit()
+	BattleSystem.next_turn()
