@@ -1,10 +1,12 @@
 extends Node2D
 class_name CreatureDisplay
 
-@onready var active_icon: Sprite2D = %ActiveIcon
 @onready var animations: Node2D = $Animations
 @onready var hp_bar: ProgressBar = %hpBar
-@onready var button: Button = $Button
+@onready var button: Button = %Button
+@onready var marker: Node2D = %Marker
+@onready var target_marker: NinePatchRect = %TargetMarker
+@onready var active_marker: NinePatchRect = %ActiveMarker
 
 var rng = RandomNumberGenerator.new()
 var display_offset = Vector2(1, 3)
@@ -18,6 +20,8 @@ var player_creature : bool = false
 func _ready() -> void:
 	## variables
 	button.disabled = true
+	target_marker.visible = false
+	active_marker.visible = false
 	rng.randomize()
 	## prep creature
 	_offset_creature(true)
@@ -27,15 +31,22 @@ func _ready() -> void:
 	## signals
 	SignalBus.update_hp_bar.connect(_on_update_hp_bar)
 	SignalBus.action_selected.connect(_on_action_selected)
+	SignalBus.action_deselected.connect(_on_action_deselected)
 
 func _on_action_selected():
-	button.disabled = true
+	_on_action_deselected()
 	if player_creature:
 		if BattleSystem.currently_selected_action.target_player[position_index]:
 			button.disabled = false
+			target_marker.visible = true
 	else:
 		if BattleSystem.currently_selected_action.target_enemy[position_index]:
 			button.disabled = false
+			target_marker.visible = true
+
+func _on_action_deselected():
+	button.disabled = true
+	target_marker.visible = false
 
 func _on_update_hp_bar():
 	hp_bar.max_value = creature_data.max_hp
@@ -43,14 +54,14 @@ func _on_update_hp_bar():
 
 ########################################### helper
 func enable(new_status : bool = false):
-	active_icon.visible = new_status
+	active_marker.visible = new_status
 
 ########################################### prep creature
 func _init_faction(player_creature : bool):
 	if player_creature:
-		pass
+		marker.modulate = Color('c65197')
 	else:
-		pass
+		marker.modulate = Color('a53030')
 
 func _offset_creature(create_new_offset := false):
 	if create_new_offset:

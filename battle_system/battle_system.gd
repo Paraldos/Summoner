@@ -40,6 +40,7 @@ func next_round():
 	next_turn()
 
 func next_turn():
+	SignalBus.action_deselected.emit()
 	if currently_active_creature:
 		currently_active_creature.enable(false)
 	turn_index += 1
