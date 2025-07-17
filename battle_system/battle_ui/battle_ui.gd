@@ -3,6 +3,9 @@ extends MarginContainer
 
 func _ready():
 	SignalBus.start_action.connect(_on_start_action)
+	for btn in action_btns.get_children():
+		btn.disabled = true
+		btn.visible = false
 
 func _on_start_action():
 	for btn in action_btns.get_children():

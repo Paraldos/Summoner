@@ -10,6 +10,12 @@ func _ready() -> void:
 	SignalBus.update_battle_ui.connect(_on_update_battle_ui)
 	SignalBus.action_selected.connect(_on_action_selected)
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed('abort'):
+		BattleSystem.active_action = null
+		SignalBus.action_deselected.emit()
+		button_pressed = false
+
 func _on_action_selected():
 	button_pressed = false
 
