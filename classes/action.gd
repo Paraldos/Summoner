@@ -22,7 +22,6 @@ extends Resource
 
 func start(target : CreatureDisplay, attacker : CreatureDisplay):
 	SignalBus.disable_battle_ui.emit()
-	SignalBus.start_action.emit()
 	BattleSystem.attacker = attacker.creature
 	BattleSystem.target = target.creature
 	target.animations.hit_animation()
@@ -40,5 +39,5 @@ func use():
 	# inflict status
 	# heald
 	SignalBus.update_hp_bar.emit()
-	SignalBus.end_action.emit()
+	SignalBus.return_display_to_idle_animation.emit()
 	BattleSystem.next_turn()

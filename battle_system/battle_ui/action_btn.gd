@@ -9,34 +9,33 @@ func _ready() -> void:
 	disabled = true
 	SignalBus.enable_battle_ui.connect(_on_enable_battle_ui)
 	SignalBus.disable_battle_ui.connect(_on_disable_battle_ui)
-	SignalBus.action_selected.connect(_on_action_selected)
+	SignalBus.unselect_all_action_btns.connect(_on_unselect_all_action_btns)
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed('abort'):
 		BattleSystem.active_action = null
-		SignalBus.action_deselected.emit()
 		button_pressed = false
 
-func _on_action_selected():
+func _on_unselect_all_action_btns():
 	button_pressed = false
 
 func _on_disable_battle_ui():
 	disabled = true
 
 func _on_enable_battle_ui():
-	button_pressed = false
 	var creature_actions = BattleSystem.active_display.creature.actions
-	action = null
-	if btn_index < creature_actions.size():
+	button_pressed = false
+	if btn_index < creature_actions.size() && creature_actions[btn_index]:
 		action = creature_actions[btn_index]
+		icon = action.icon
+	else:
+		action = null
 	visible = action != null
 	disabled = !visible
-	if action:
-		icon = action.icon
 
 func _on_pressed() -> void:
 	BattleSystem.active_action = action
-	SignalBus.action_selected.emit()
+	SignalBus.activate_display_marker.emit()
 	button_pressed = true
 
 func _on_mouse_entered() -> void:

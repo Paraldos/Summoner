@@ -24,10 +24,12 @@ func start_battle(battle : Battle):
 	# prep
 	root.mouse_filter = Control.MOUSE_FILTER_STOP
 	Utils.game_status = GlobalEnums.GameStatus.BATTLE
-	list_of_all_displays = []
 	# add warebands
+	list_of_all_displays = []
 	warband_player.add_creatures(PlayerData.creatures)
 	warband_enemy.add_creatures(battle.creatures.duplicate())
+	# star first round
+	await Utils.timer(1.0)
 	next_round()
 
 func stop_battle():
@@ -40,15 +42,14 @@ func next_round():
 	turn_index = -1
 	for creature in list_of_all_displays:
 		creature.creature.roll_ini()
-	list_of_all_displays.sort_custom(func(a, b):
-		return a.creature.current_ini > b.creature.current_ini
+	list_of_all_displays.sort_custom(
+		func(a, b): return a.creature.current_ini > b.creature.current_ini
 	)
 	next_turn()
 
 func next_turn():
-	SignalBus.action_deselected.emit()
-	if active_display: active_display.disable()
 	turn_index += 1
+	if active_display: active_display.disable()
 	if list_of_all_displays.size() > turn_index:
 		list_of_all_displays[turn_index].enable()
 	else:

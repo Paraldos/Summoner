@@ -8,13 +8,13 @@ extends Node2D
 func _ready():
 	button.disabled = true
 	modulate = Color('a53030')
-	SignalBus.action_selected.connect(_on_action_selected)
+	SignalBus.activate_display_marker.connect(_on_activate_display_marker)
 	SignalBus.disable_battle_ui.connect(_on_disable_battle_ui)
 
 func set_to_active(new_status : bool):
 	active_marker.visible = new_status
 
-func _on_action_selected():
+func _on_activate_display_marker():
 	button.disabled = true
 	target_marker.visible = false
 	if parent.dead: return
@@ -34,4 +34,3 @@ func _on_disable_battle_ui():
 
 func _on_button_pressed() -> void:
 	BattleSystem.active_action.start(parent, BattleSystem.active_display)
-	SignalBus.start_action.emit()

@@ -4,10 +4,9 @@ signal update_hp_bar
 
 signal disable_battle_ui
 signal enable_battle_ui
-
-signal action_selected
-signal action_deselected
-signal update_battle_description(text : String)
-signal next_turn
-signal start_action
+signal unselect_all_action_btns
+signal activate_display_marker
 signal end_action
+signal return_display_to_idle_animation
+
+signal update_battle_description(text : String)

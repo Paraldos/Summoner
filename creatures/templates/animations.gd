@@ -11,13 +11,13 @@ func _ready() -> void:
 		attack_offset.y *= -1
 		hit_offset.y *= -1
 	_play_animation('Idle')
-	SignalBus.end_action.connect(_on_end_action)
+	SignalBus.return_display_to_idle_animation.connect(_on_return_display_to_idle_animation)
 
-func _on_end_action():
+func _on_return_display_to_idle_animation():
 	if parent.dead: return
 	if parent.creature.current_hp > 0:
-		_play_animation('Idle')
 		_tween_pos(Vector2.ZERO, 0.2)
+		_play_animation('Idle')
 	else:
 		await _tween_pos(Vector2.ZERO, 0.2)
 		death_animation()

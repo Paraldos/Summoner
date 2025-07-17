@@ -18,4 +18,5 @@ func _on_mouse_exited() -> void:
 	SignalBus.update_battle_description.emit('')
 
 func _on_pressed() -> void:
+	SignalBus.disable_battle_ui.emit()
 	BattleSystem.next_turn()
