@@ -21,6 +21,7 @@ extends Resource
 
 
 func start(target : CreatureDisplay, attacker : CreatureDisplay):
+	SignalBus.disable_battle_ui.emit()
 	SignalBus.start_action.emit()
 	BattleSystem.attacker = attacker.creature
 	BattleSystem.target = target.creature

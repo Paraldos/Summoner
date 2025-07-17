@@ -7,7 +7,8 @@ func _ready() -> void:
 	super()
 	visible = false
 	disabled = true
-	SignalBus.update_battle_ui.connect(_on_update_battle_ui)
+	SignalBus.enable_battle_ui.connect(_on_enable_battle_ui)
+	SignalBus.disable_battle_ui.connect(_on_disable_battle_ui)
 	SignalBus.action_selected.connect(_on_action_selected)
 
 func _physics_process(delta: float) -> void:
@@ -19,7 +20,10 @@ func _physics_process(delta: float) -> void:
 func _on_action_selected():
 	button_pressed = false
 
-func _on_update_battle_ui():
+func _on_disable_battle_ui():
+	disabled = true
+
+func _on_enable_battle_ui():
 	button_pressed = false
 	var creature_actions = BattleSystem.active_display.creature.actions
 	action = null

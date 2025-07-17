@@ -24,7 +24,7 @@ func enable():
 		BattleSystem.active_display = self
 		BattleSystem.active_creature = creature
 		marker.set_to_active(true)
-		SignalBus.update_battle_ui.emit()
+		SignalBus.enable_battle_ui.emit()
 	else:
 		ai_controller.start_turn()
 
