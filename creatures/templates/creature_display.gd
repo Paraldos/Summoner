@@ -8,7 +8,7 @@ class_name CreatureDisplay
 var rng = RandomNumberGenerator.new()
 var position_index : int
 var creature : Resource
-var player_creature : bool = false
+var belongs_to_wareband_of_player : bool = false
 var disabled = false
 
 func _ready() -> void:

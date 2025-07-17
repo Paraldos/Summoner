@@ -15,7 +15,7 @@ func add_creature(creature : Creature, position_index : int):
 	var creature_display = creature.display.instantiate()
 	creature_display.position_index = position_index
 	creature_display.creature = creature
-	creature_display.player_creature = player_warband
+	creature_display.belongs_to_wareband_of_player = player_warband
 	## logistic
 	creatures.add_child(creature_display)
 	BattleSystem.list_of_all_involved_creatures.append(creature_display)

@@ -7,7 +7,7 @@ var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
 	_offset_creature()
-	if parent.player_creature == false:
+	if parent.belongs_to_wareband_of_player == false:
 		attack_offset.y *= -1
 		hit_offset.y *= -1
 	_play_animation('Idle')

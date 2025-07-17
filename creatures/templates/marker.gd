@@ -20,8 +20,8 @@ func _on_action_selected():
 	_on_action_deselected()
 	if parent.disabled: return
 	if BattleSystem.active_display == parent: return
-	if parent.player_creature:
-		if BattleSystem.active_action.target_player[parent.position_index]:
+	if parent.belongs_to_wareband_of_player:
+		if BattleSystem.active_action.target_allied[parent.position_index]:
 			button.disabled = false
 			target_marker.visible = true
 	else:
