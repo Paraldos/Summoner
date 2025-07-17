@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cob0scjp6xohi"]
+[gd_scene load_steps=6 format=3 uid="uid://cob0scjp6xohi"]
 
 [ext_resource type="PackedScene" uid="uid://rjp54pm4you5" path="res://message_system/message_template.tscn" id="1_mdxdu"]
 [ext_resource type="Script" uid="uid://babl8wq6ln6a0" path="res://message_system/battle_won_message.gd" id="2_b4m5w"]
 [ext_resource type="Texture2D" uid="uid://dsnty6o85r74x" path="res://assets/images/UI/laurels.png" id="2_pu67u"]
 [ext_resource type="Script" uid="uid://cv5nug13ucj4n" path="res://classes/btn.gd" id="3_kg3g7"]
+[ext_resource type="Texture2D" uid="uid://dt10yldkudlfs" path="res://assets/images/UI/small_icons9.png" id="4_6rko7"]
 
 [node name="BattleWonMessage" instance=ExtResource("1_mdxdu")]
 script = ExtResource("2_b4m5w")
@@ -24,12 +25,14 @@ theme_override_constants/separation = 10
 [node name="Label" type="Label" parent="ColorRect/PanelContainer/VBoxContainer" index="0"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "You Won!"
+text = "Victory!"
 horizontal_alignment = 1
 
 [node name="Btn" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" index="1"]
+custom_minimum_size = Vector2(0, 12)
 layout_mode = 2
-text = "Accept"
+icon = ExtResource("4_6rko7")
+icon_alignment = 1
 script = ExtResource("3_kg3g7")
 metadata/_custom_type_script = "uid://cv5nug13ucj4n"
 

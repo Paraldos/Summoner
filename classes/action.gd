@@ -42,4 +42,5 @@ func use():
 	# heald
 	SignalBus.update_hp_bar.emit()
 	SignalBus.return_display_to_idle_animation.emit()
+	await Utils.timer(0.3)
 	BattleSystem.next_turn()

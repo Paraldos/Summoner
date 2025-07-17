@@ -38,7 +38,6 @@ func start_battle(battle : Battle):
 	# star first round
 	SignalBus.disable_battle_ui.emit()
 	await animation_player_root.animation_finished
-	await Utils.timer(1.0)
 	next_round()
 
 func stop_battle():
