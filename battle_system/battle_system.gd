@@ -29,6 +29,7 @@ func start_battle(battle : Battle):
 	warband_player.add_creatures(PlayerData.creatures)
 	warband_enemy.add_creatures(battle.creatures.duplicate())
 	# star first round
+	SignalBus.disable_battle_ui.emit()
 	await Utils.timer(1.0)
 	next_round()
 

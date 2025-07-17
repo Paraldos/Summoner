@@ -6,7 +6,6 @@ extends Node2D
 @export var parent : CreatureDisplay
 
 func _ready():
-	button.disabled = true
 	modulate = Color('a53030')
 	SignalBus.activate_display_marker.connect(_on_activate_display_marker)
 	SignalBus.disable_battle_ui.connect(_on_disable_battle_ui)
