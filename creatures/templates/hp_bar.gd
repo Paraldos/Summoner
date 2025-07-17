@@ -7,5 +7,9 @@ func _ready() -> void:
 	_on_update_hp_bar()
 
 func _on_update_hp_bar():
+	if parent.dead: return
 	max_value = parent.creature.max_hp
 	value = parent.creature.current_hp
+	if parent.creature.current_hp <= 0:
+		parent.animations.death_animation()
+		parent.dead = true

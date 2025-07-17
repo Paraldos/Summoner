@@ -4,6 +4,7 @@ extends Node2D
 var hit_offset := Vector2(-7, 3)
 var attack_offset := Vector2(3, -7)
 var rng = RandomNumberGenerator.new()
+var death_animation_played = false
 
 func _ready() -> void:
 	_offset_creature()
@@ -15,13 +16,8 @@ func _ready() -> void:
 
 func _on_return_display_to_idle_animation():
 	if parent.dead: return
-	if parent.creature.current_hp > 0:
-		_tween_pos(Vector2.ZERO, 0.2)
-		_play_animation('Idle')
-	else:
-		await _tween_pos(Vector2.ZERO, 0.2)
-		death_animation()
-		parent.dead = true
+	_tween_pos(Vector2.ZERO, 0.2)
+	_play_animation('Idle')
 
 func _offset_creature():
 	var display_offset = Vector2(1, 3)
@@ -61,6 +57,7 @@ func attack_animation():
 
 func death_animation():
 	if parent.dead: return
+	await _tween_pos(Vector2.ZERO, 0.2)
 	_play_animation('Death')
 
 ########################################### animation finished
