@@ -15,6 +15,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed('abort'):
 		BattleSystem.active_action = null
 		button_pressed = false
+		SignalBus.unselect_all_action_btns.emit()
 
 func _on_unselect_all_action_btns():
 	button_pressed = false

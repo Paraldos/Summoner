@@ -9,6 +9,7 @@ func _ready():
 	modulate = Color('a53030')
 	SignalBus.activate_display_marker.connect(_on_activate_display_marker)
 	SignalBus.disable_battle_ui.connect(_on_disable_battle_ui)
+	SignalBus.unselect_all_action_btns.connect(_on_disable_battle_ui)
 
 func set_to_active(new_status : bool):
 	active_marker.visible = new_status
