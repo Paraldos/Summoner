@@ -66,6 +66,8 @@ _data = {
 }
 
 [node name="Marker" type="Node2D"]
+modulate = Color(0.125911, 0.125911, 0.125911, 1)
+self_modulate = Color(0.899259, 0.899258, 0.899258, 1)
 script = ExtResource("1_2cyw8")
 
 [node name="Node2D" type="Node2D" parent="."]
