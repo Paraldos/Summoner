@@ -52,7 +52,7 @@ metadata/_edit_lock_ = true
 
 [node name="LeaderMarker" type="Marker2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(-50, 0)
+position = Vector2(-52, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="LeaderMarker"]
 texture = ExtResource("3_s68ll")
