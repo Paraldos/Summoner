@@ -15,6 +15,7 @@ var win_message := preload('res://message_system/battle_won_message.tscn')
 var lost_message := preload('res://message_system/battle_lost_message.tscn')
 
 var target : Creature
+var target_display : CreatureDisplay
 var attacker : Creature
 
 func _ready() -> void:

@@ -14,12 +14,14 @@ script = ExtResource("1_ko82b")
 unique_name_in_owner = true
 parent = NodePath("..")
 
+[node name="MarkerForDmgPopup" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+
 [node name="Animations" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_b64so")]
 parent = NodePath("..")
 
 [node name="StatusBar" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_8q5ft")]
-offset_top = 19.0
-offset_bottom = 27.0
 parent = NodePath("..")
 
 [node name="Marker" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("3_8q5ft")]

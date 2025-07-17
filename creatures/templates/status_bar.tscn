@@ -1,14 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://8jqmybao6mc7"]
+[gd_scene load_steps=4 format=3 uid="uid://8jqmybao6mc7"]
 
-[ext_resource type="Theme" uid="uid://d1ojwyofcljvo" path="res://themes/main_theme.tres" id="1_62ckj"]
 [ext_resource type="Script" uid="uid://kpx7gqj2d7m1" path="res://creatures/templates/status_bar.gd" id="2_64a1o"]
+[ext_resource type="Texture2D" uid="uid://bdcfxf8q0plou" path="res://assets/images/UI/progressbar1.png" id="2_rbw1o"]
+[ext_resource type="Texture2D" uid="uid://cdusghs4yplbe" path="res://assets/images/UI/progressbar2.png" id="3_nuglr"]
 
-[node name="StatusBar" type="ProgressBar"]
-custom_minimum_size = Vector2(28, 8)
-offset_left = -14.0
-offset_right = 14.0
-offset_bottom = 8.0
-theme = ExtResource("1_62ckj")
-value = 50.0
-show_percentage = false
+[node name="StatusBar" type="Node2D"]
 script = ExtResource("2_64a1o")
+
+[node name="ProgressBar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(28, 8)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.0
+offset_top = 19.0
+offset_right = 14.0
+offset_bottom = 27.0
+grow_horizontal = 2
+max_value = 0.0
+step = 0.01
+nine_patch_stretch = true
+stretch_margin_left = 2
+stretch_margin_top = 2
+stretch_margin_right = 2
+stretch_margin_bottom = 2
+texture_under = ExtResource("2_rbw1o")
+texture_progress = ExtResource("3_nuglr")

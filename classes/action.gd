@@ -24,6 +24,7 @@ func start(target : CreatureDisplay, attacker : CreatureDisplay):
 	SignalBus.disable_battle_ui.emit()
 	BattleSystem.attacker = attacker.creature
 	BattleSystem.target = target.creature
+	BattleSystem.target_display = target
 	target.animations.hit_animation()
 	attacker.animations.attack_animation()
 
@@ -35,7 +36,8 @@ func use():
 	dmg -= target.defense
 	if target.resistances.has(type):
 		dmg *= 0.5
-	target.current_hp -= max(0, dmg)
+	target.current_hp -= dmg
+	BattleSystem.target_display.spawn_dmg_popup(dmg)
 	# inflict status
 	# heald
 	SignalBus.update_hp_bar.emit()

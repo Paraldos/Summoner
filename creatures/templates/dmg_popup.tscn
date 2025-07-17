@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://byvl1xe5cffiu"]
+
+[ext_resource type="Script" uid="uid://bp54n5jm1j3ty" path="res://creatures/templates/dmg_popup.gd" id="1_rn406"]
+[ext_resource type="Theme" uid="uid://d1ojwyofcljvo" path="res://themes/main_theme.tres" id="3_5tu1q"]
+
+[sub_resource type="Animation" id="Animation_0pnqw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelParent:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ngkyg"]
+resource_name = "float"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelParent:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -15)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelParent:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0pnqw"]
+_data = {
+&"RESET": SubResource("Animation_0pnqw"),
+&"float": SubResource("Animation_ngkyg")
+}
+
+[node name="DmgPopup" type="Node2D"]
+z_index = 4096
+z_as_relative = false
+script = ExtResource("1_rn406")
+
+[node name="LabelParent" type="Node2D" parent="."]
+
+[node name="Label" type="Label" parent="LabelParent"]
+unique_name_in_owner = true
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -4.0
+offset_right = 45.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 2
+theme = ExtResource("3_5tu1q")
+theme_override_colors/font_color = Color(0.647059, 0.188235, 0.188235, 1)
+theme_override_colors/font_outline_color = Color(0.0627451, 0.0784314, 0.121569, 1)
+theme_override_constants/outline_size = 3
+text = "123"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0pnqw")
+}
+autoplay = "float"

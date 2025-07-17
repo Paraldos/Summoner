@@ -2,9 +2,11 @@ extends Node2D
 class_name CreatureDisplay
 
 @onready var ai_controller: Node = %AIController
+@onready var marker_for_dmg_popup: Marker2D = %MarkerForDmgPopup
 @onready var animations: Node2D = $Animations
 @onready var marker: Node2D = %Marker
 
+var dmg_popup = preload('res://creatures/templates/dmg_popup.tscn')
 var rng = RandomNumberGenerator.new()
 var position_index : int
 var creature : Resource
@@ -32,3 +34,9 @@ func disable():
 
 func update_position():
 	position.x = position_index * 32
+
+func spawn_dmg_popup(dmg : int):
+	var popup = dmg_popup.instantiate()
+	popup.dmg = dmg
+	popup.global_position = marker_for_dmg_popup.global_position
+	BattleSystem.add_child(popup)
