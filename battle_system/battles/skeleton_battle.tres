@@ -1,50 +1,12 @@
-[gd_resource type="Resource" script_class="Battle" load_steps=8 format=3 uid="uid://dmc3xlfd8dhs"]
+[gd_resource type="Resource" script_class="Battle" load_steps=4 format=3 uid="uid://dmc3xlfd8dhs"]
 
 [ext_resource type="Script" uid="uid://c2oil5kx7intj" path="res://classes/creature.gd" id="1_hfooe"]
 [ext_resource type="Script" uid="uid://dh5j6mjdm4smq" path="res://battle_system/battle.gd" id="1_l5b5x"]
-[ext_resource type="Script" uid="uid://b4fo4jk01npk" path="res://classes/action.gd" id="2_wa81e"]
-[ext_resource type="Resource" uid="uid://cvqmsulkqy5xa" path="res://actions/cut.tres" id="3_lnie0"]
-[ext_resource type="PackedScene" uid="uid://8xptwaqs5i1v" path="res://creatures/skeleton/skeleton_display.tscn" id="4_fgrvc"]
-
-[sub_resource type="Resource" id="Resource_nvnve"]
-script = ExtResource("1_hfooe")
-title = "Creature"
-type = 0
-actions = Array[ExtResource("2_wa81e")]([ExtResource("3_lnie0"), ExtResource("3_lnie0"), null])
-display = ExtResource("4_fgrvc")
-resistances = Array[int]([])
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
-xp = 0
-level = 1
-attack = 45
-crit_chance = 4
-defense = 35
-ini = 0
-max_hp = 40
-current_hp = null
-metadata/_custom_type_script = "uid://c2oil5kx7intj"
-
-[sub_resource type="Resource" id="Resource_8vnh1"]
-script = ExtResource("1_hfooe")
-title = "Creature"
-type = 0
-actions = Array[ExtResource("2_wa81e")]([ExtResource("3_lnie0"), ExtResource("3_lnie0"), null])
-display = ExtResource("4_fgrvc")
-resistances = Array[int]([])
-description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
-xp = 0
-level = 1
-attack = 45
-crit_chance = 4
-defense = 35
-ini = 0
-max_hp = 40
-current_hp = null
-metadata/_custom_type_script = "uid://c2oil5kx7intj"
+[ext_resource type="Resource" uid="uid://vhjp62g8v7f5" path="res://creatures/skeleton/skeleton.tres" id="2_lfiv4"]
 
 [resource]
 script = ExtResource("1_l5b5x")
-creatures = Array[ExtResource("1_hfooe")]([SubResource("Resource_nvnve"), SubResource("Resource_8vnh1")])
+creatures = Array[ExtResource("1_hfooe")]([ExtResource("2_lfiv4"), ExtResource("2_lfiv4")])
 battle_difficulty = "Easy"
 victory_story_variable = ""
 defeat_story_variable = ""

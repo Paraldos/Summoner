@@ -9,6 +9,7 @@ func start_turn():
 		if action == null: continue
 		var valid_targets : Array = _get_valid_targets(action)
 		if valid_targets:
+			valid_targets.shuffle()
 			BattleSystem.active_action = action
 			action.start(valid_targets.pop_front(), parent)
 			return

@@ -6,7 +6,7 @@ extends Node2D
 
 func add_creatures(list_of_creatures : Array[Creature]):
 	for position_index in list_of_creatures.size():
-		var creature = list_of_creatures[position_index]
+		var creature = list_of_creatures[position_index].duplicate()
 		if creature == null: return
 		add_creature(creature, position_index)
 

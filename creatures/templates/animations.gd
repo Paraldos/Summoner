@@ -1,8 +1,8 @@
 extends Node2D
 
 @export var parent : CreatureDisplay
-var hit_offset := Vector2(-10, 5)
-var attack_offset := Vector2(5, -10)
+var hit_offset := Vector2(-7, 3)
+var attack_offset := Vector2(3, -7)
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:

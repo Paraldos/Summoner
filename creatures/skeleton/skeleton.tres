@@ -7,7 +7,7 @@
 
 [resource]
 script = ExtResource("3_t00x6")
-title = "Creature"
+title = "Skeleton"
 type = 0
 actions = Array[ExtResource("1_lj6tb")]([ExtResource("2_t00x6"), ExtResource("2_t00x6"), null])
 display = ExtResource("2_md2d3")

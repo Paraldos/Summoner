@@ -33,3 +33,11 @@ func _on_disable_battle_ui():
 
 func _on_button_pressed() -> void:
 	BattleSystem.active_action.start(parent, BattleSystem.active_display)
+
+func _on_button_mouse_entered() -> void:
+	var name = parent.creature.title
+	var type = Utils.get_enum_name(GlobalEnums.CreatureTypes, parent.creature.type)
+	SignalBus.update_battle_description.emit('%s (%s)' % [name, type])
+
+func _on_button_mouse_exited() -> void:
+	SignalBus.update_battle_description.emit('')
