@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dj4x8guyxftl4"]
 
 [ext_resource type="Script" uid="uid://q0ge0fx8otv7" path="res://creatures/templates/creature_display.gd" id="1_ko82b"]
-[ext_resource type="PackedScene" uid="uid://8jqmybao6mc7" path="res://creatures/templates/hp_bar.tscn" id="2_8q5ft"]
+[ext_resource type="PackedScene" uid="uid://8jqmybao6mc7" path="res://creatures/templates/status_bar.tscn" id="2_8q5ft"]
 [ext_resource type="PackedScene" uid="uid://pa3d3wefogyw" path="res://creatures/templates/animations.tscn" id="2_b64so"]
 [ext_resource type="PackedScene" uid="uid://1smaac8hxi50" path="res://creatures/templates/ai_controller.tscn" id="2_cba3y"]
 [ext_resource type="PackedScene" uid="uid://uxqsjif0a3vi" path="res://creatures/templates/marker.tscn" id="3_8q5ft"]
@@ -17,11 +17,8 @@ parent = NodePath("..")
 [node name="Animations" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_b64so")]
 parent = NodePath("..")
 
-[node name="hpBar" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_8q5ft")]
-unique_name_in_owner = true
-offset_left = -14.0
+[node name="StatusBar" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_8q5ft")]
 offset_top = 19.0
-offset_right = 14.0
 offset_bottom = 27.0
 parent = NodePath("..")
 

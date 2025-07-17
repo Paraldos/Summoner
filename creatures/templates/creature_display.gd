@@ -3,7 +3,6 @@ class_name CreatureDisplay
 
 @onready var ai_controller: Node = %AIController
 @onready var animations: Node2D = $Animations
-@onready var hp_bar: ProgressBar = %hpBar
 @onready var marker: Node2D = %Marker
 
 var rng = RandomNumberGenerator.new()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b0e3bkimqe44d"]
 
-[ext_resource type="Texture2D" uid="uid://ddc6wvnjo6ge2" path="res://assets/images/UI/Icons2.png" id="1_ygnxe"]
+[ext_resource type="Texture2D" uid="uid://cbrgg6h806mle" path="res://assets/images/UI/medium_icons2.png" id="1_ygnxe"]
 [ext_resource type="Script" uid="uid://cv5nug13ucj4n" path="res://classes/btn.gd" id="2_lb717"]
 
 [node name="SpellBtn" type="Button"]

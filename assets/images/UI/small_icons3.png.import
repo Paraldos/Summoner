@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vk2ua66m3ro0"
-path="res://.godot/imported/alt_button1.png-1f7fa8dce3831b6f498963eaade26ac0.ctex"
+uid="uid://cigkm60rgr03p"
+path="res://.godot/imported/small_icons3.png-f6502d638b908f5e60798485dade3f01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/UI/alt_button1.png"
-dest_files=["res://.godot/imported/alt_button1.png-1f7fa8dce3831b6f498963eaade26ac0.ctex"]
+source_file="res://assets/images/UI/small_icons3.png"
+dest_files=["res://.godot/imported/small_icons3.png-f6502d638b908f5e60798485dade3f01.ctex"]
 
 [params]
 

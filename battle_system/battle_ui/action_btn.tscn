@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://lv07sy4dkpep"]
 
-[ext_resource type="Texture2D" uid="uid://dsg3ym476ie87" path="res://assets/images/UI/chevron2.png" id="1_14lqa"]
+[ext_resource type="Texture2D" uid="uid://dtxhryeoh4tfk" path="res://assets/images/UI/small_icons2.png" id="1_14lqa"]
 [ext_resource type="Script" uid="uid://y83yvo3ugdh" path="res://battle_system/battle_ui/action_btn.gd" id="2_14lqa"]
 
 [node name="ActionBtn" type="Button"]

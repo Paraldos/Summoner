@@ -3,7 +3,6 @@ extends Node
 @export var parent : CreatureDisplay
 
 func start_turn():
-	await Utils.timer(1.0)
 	var possible_actions = _prep_possible_actions()
 	for action in possible_actions:
 		if action == null: continue

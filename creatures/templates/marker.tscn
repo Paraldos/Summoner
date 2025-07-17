@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://uxqsjif0a3vi"]
 
-[ext_resource type="Texture2D" uid="uid://bthybf72w0hqq" path="res://assets/images/UI/display_marker.png" id="1_0rwfq"]
 [ext_resource type="Script" uid="uid://4wjkhl6bf1ql" path="res://creatures/templates/marker.gd" id="1_2cyw8"]
+[ext_resource type="Texture2D" uid="uid://bcuwcwb4k5yei" path="res://assets/images/UI/small_icons11.png" id="2_2cyw8"]
 
 [sub_resource type="Animation" id="Animation_cba3y"]
 length = 0.001
@@ -74,7 +74,7 @@ script = ExtResource("1_2cyw8")
 
 [node name="TargetMarker" type="Sprite2D" parent="Node2D"]
 unique_name_in_owner = true
-texture = ExtResource("1_0rwfq")
+texture = ExtResource("2_2cyw8")
 
 [node name="ActiveMarker" type="Line2D" parent="Node2D"]
 unique_name_in_owner = true

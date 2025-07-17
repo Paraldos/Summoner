@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://lyfqn0fdhfc8"]
 
-[ext_resource type="Texture2D" uid="uid://bxablye4r5nf3" path="res://assets/images/UI/x.png" id="1_0mx6n"]
+[ext_resource type="Texture2D" uid="uid://bckckfnfh0nkw" path="res://assets/images/UI/small_icons10.png" id="1_0mx6n"]
 [ext_resource type="Script" uid="uid://yrw1e66v0rg3" path="res://battle_system/battle_ui/skip_turn_btn.gd" id="2_0mx6n"]
 
 [node name="SkipTurnBtn" type="Button"]
