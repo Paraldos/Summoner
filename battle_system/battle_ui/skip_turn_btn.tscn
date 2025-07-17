@@ -5,6 +5,7 @@
 
 [node name="SkipTurnBtn" type="Button"]
 custom_minimum_size = Vector2(18, 18)
+focus_mode = 0
 icon = ExtResource("1_0mx6n")
 icon_alignment = 1
 script = ExtResource("2_0mx6n")

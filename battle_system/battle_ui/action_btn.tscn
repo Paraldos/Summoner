@@ -5,6 +5,7 @@
 
 [node name="ActionBtn" type="Button"]
 custom_minimum_size = Vector2(18, 18)
+focus_mode = 0
 toggle_mode = true
 icon = ExtResource("1_14lqa")
 icon_alignment = 1

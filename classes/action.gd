@@ -6,12 +6,12 @@ extends Resource
 @export var stance = GlobalEnums.Stances.ATTACK
 @export var type = GlobalEnums.AttackTypes.SLASHING
 @export var icon : CompressedTexture2D
-@export var target_allied : Array[bool] = [
+@export var allied_targets : Array[bool] = [
 	true,
 	true,
 	true
 ]
-@export var target_enemy : Array[bool] = [
+@export var enemy_targets : Array[bool] = [
 	true,
 	true,
 	true
@@ -21,6 +21,7 @@ extends Resource
 
 
 func start(target : CreatureDisplay, attacker : CreatureDisplay):
+	SignalBus.start_action.emit()
 	BattleSystem.attacker = attacker.creature
 	BattleSystem.target = target.creature
 	target.animations.hit_animation()

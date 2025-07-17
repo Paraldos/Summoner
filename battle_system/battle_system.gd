@@ -4,7 +4,9 @@ extends CanvasLayer
 @onready var animation_player_root: AnimationPlayer = %AnimationPlayerRoot
 @onready var warband_player: Node2D = %WarbandPlayer
 @onready var warband_enemy: Node2D = %WarbandEnemy
-var list_of_all_involved_creatures: Array[CreatureDisplay] = []
+var list_of_all_displays: Array[CreatureDisplay] = []
+var list_of_player_displays: Array[CreatureDisplay] = []
+var list_of_enemy_displays: Array[CreatureDisplay] = []
 var turn_index: int
 var active_display: CreatureDisplay
 var active_creature: Creature
@@ -22,7 +24,7 @@ func start_battle(battle : Battle):
 	# prep
 	root.mouse_filter = Control.MOUSE_FILTER_STOP
 	Utils.game_status = GlobalEnums.GameStatus.BATTLE
-	list_of_all_involved_creatures = []
+	list_of_all_displays = []
 	# add warebands
 	warband_player.add_creatures(PlayerData.creatures)
 	warband_enemy.add_creatures(battle.creatures.duplicate())
@@ -36,22 +38,18 @@ func stop_battle():
 ########################################### turn and round
 func next_round():
 	turn_index = -1
-	for creature in list_of_all_involved_creatures:
+	for creature in list_of_all_displays:
 		creature.creature.roll_ini()
-	list_of_all_involved_creatures.sort_custom(func(a, b):
+	list_of_all_displays.sort_custom(func(a, b):
 		return a.creature.current_ini > b.creature.current_ini
 	)
 	next_turn()
 
 func next_turn():
 	SignalBus.action_deselected.emit()
-	if active_display:
-		active_display.enable(false)
+	if active_display: active_display.disable()
 	turn_index += 1
-	if turn_index > list_of_all_involved_creatures.size() -1:
-		next_round()
+	if list_of_all_displays.size() > turn_index:
+		list_of_all_displays[turn_index].enable()
 	else:
-		active_display = list_of_all_involved_creatures[turn_index]
-		active_creature = list_of_all_involved_creatures[turn_index].creature
-		active_display.enable(true)
-		SignalBus.update_action_btn.emit()
+		next_round()

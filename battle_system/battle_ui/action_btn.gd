@@ -5,13 +5,15 @@ var action = null
 
 func _ready() -> void:
 	super()
-	SignalBus.update_action_btn.connect(_on_update_action_btn)
+	visible = false
+	disabled = true
+	SignalBus.update_battle_ui.connect(_on_update_battle_ui)
 	SignalBus.action_selected.connect(_on_action_selected)
 
 func _on_action_selected():
 	button_pressed = false
 
-func _on_update_action_btn():
+func _on_update_battle_ui():
 	button_pressed = false
 	var creature_actions = BattleSystem.active_display.creature.actions
 	action = null

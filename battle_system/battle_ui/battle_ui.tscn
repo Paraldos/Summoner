@@ -52,6 +52,7 @@ btn_index = 2
 
 [node name="SpellBtn" parent="HBoxContainer/PanelContainer/ActionBtns" instance=ExtResource("4_j77uh")]
 layout_mode = 2
+focus_mode = 0
 
 [node name="SkipTurnBtn" parent="HBoxContainer/PanelContainer/ActionBtns" instance=ExtResource("5_strtl")]
 layout_mode = 2

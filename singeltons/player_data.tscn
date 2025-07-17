@@ -1,9 +1,65 @@
-[gd_scene load_steps=4 format=3 uid="uid://bshh2bs8uoeh8"]
+[gd_scene load_steps=9 format=3 uid="uid://bshh2bs8uoeh8"]
 
 [ext_resource type="Script" uid="uid://q4biq33t1chv" path="res://singeltons/player_data.gd" id="1_ilsxe"]
 [ext_resource type="Script" uid="uid://c2oil5kx7intj" path="res://classes/creature.gd" id="2_f8g2r"]
-[ext_resource type="Resource" uid="uid://vhjp62g8v7f5" path="res://creatures/skeleton/skeleton.tres" id="3_6fgxd"]
+[ext_resource type="Script" uid="uid://b4fo4jk01npk" path="res://classes/action.gd" id="3_wyuhl"]
+[ext_resource type="Resource" uid="uid://cvqmsulkqy5xa" path="res://actions/cut.tres" id="4_00cl6"]
+[ext_resource type="PackedScene" uid="uid://8xptwaqs5i1v" path="res://creatures/skeleton/skeleton_display.tscn" id="5_0p3t1"]
+
+[sub_resource type="Resource" id="Resource_whuud"]
+script = ExtResource("2_f8g2r")
+title = "Creature"
+type = 0
+actions = Array[ExtResource("3_wyuhl")]([ExtResource("4_00cl6"), ExtResource("4_00cl6"), null])
+display = ExtResource("5_0p3t1")
+resistances = Array[int]([])
+description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
+xp = 0
+level = 1
+attack = 45
+crit_chance = 4
+defense = 35
+ini = 0
+max_hp = 40
+current_hp = null
+metadata/_custom_type_script = "uid://c2oil5kx7intj"
+
+[sub_resource type="Resource" id="Resource_umxji"]
+script = ExtResource("2_f8g2r")
+title = "Creature"
+type = 0
+actions = Array[ExtResource("3_wyuhl")]([ExtResource("4_00cl6"), ExtResource("4_00cl6"), null])
+display = ExtResource("5_0p3t1")
+resistances = Array[int]([])
+description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
+xp = 0
+level = 1
+attack = 45
+crit_chance = 4
+defense = 35
+ini = 0
+max_hp = 40
+current_hp = null
+metadata/_custom_type_script = "uid://c2oil5kx7intj"
+
+[sub_resource type="Resource" id="Resource_geems"]
+script = ExtResource("2_f8g2r")
+title = "Creature"
+type = 0
+actions = Array[ExtResource("3_wyuhl")]([ExtResource("4_00cl6"), ExtResource("4_00cl6"), null])
+display = ExtResource("5_0p3t1")
+resistances = Array[int]([])
+description = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren,"
+xp = 0
+level = 1
+attack = 45
+crit_chance = 4
+defense = 35
+ini = 0
+max_hp = 40
+current_hp = null
+metadata/_custom_type_script = "uid://c2oil5kx7intj"
 
 [node name="PlayerData" type="Node"]
 script = ExtResource("1_ilsxe")
-creatures = Array[ExtResource("2_f8g2r")]([ExtResource("3_6fgxd"), ExtResource("3_6fgxd"), ExtResource("3_6fgxd")])
+creatures = Array[ExtResource("2_f8g2r")]([SubResource("Resource_whuud"), SubResource("Resource_umxji"), SubResource("Resource_geems")])

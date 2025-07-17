@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dj4x8guyxftl4"]
+[gd_scene load_steps=6 format=3 uid="uid://dj4x8guyxftl4"]
 
 [ext_resource type="Script" uid="uid://q0ge0fx8otv7" path="res://creatures/templates/creature_display.gd" id="1_ko82b"]
 [ext_resource type="PackedScene" uid="uid://8jqmybao6mc7" path="res://creatures/templates/hp_bar.tscn" id="2_8q5ft"]
 [ext_resource type="PackedScene" uid="uid://pa3d3wefogyw" path="res://creatures/templates/animations.tscn" id="2_b64so"]
+[ext_resource type="PackedScene" uid="uid://1smaac8hxi50" path="res://creatures/templates/ai_controller.tscn" id="2_cba3y"]
 [ext_resource type="PackedScene" uid="uid://uxqsjif0a3vi" path="res://creatures/templates/marker.tscn" id="3_8q5ft"]
 
 [node name="CreatureDisplay" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_ko82b")
+
+[node name="AIController" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_cba3y")]
+unique_name_in_owner = true
+parent = NodePath("..")
 
 [node name="Animations" parent="." node_paths=PackedStringArray("parent") instance=ExtResource("2_b64so")]
 parent = NodePath("..")

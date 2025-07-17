@@ -13,19 +13,18 @@ func _ready():
 	SignalBus.start_action.connect(_on_action_deselected)
 
 func set_to_active(new_status : bool):
-	if parent.disabled: return
 	active_marker.visible = new_status
 
 func _on_action_selected():
 	_on_action_deselected()
-	if parent.disabled: return
+	if parent.dead: return
 	if BattleSystem.active_display == parent: return
 	if parent.belongs_to_wareband_of_player:
-		if BattleSystem.active_action.target_allied[parent.position_index]:
+		if BattleSystem.active_action.allied_targets[parent.position_index]:
 			button.disabled = false
 			target_marker.visible = true
 	else:
-		if BattleSystem.active_action.target_enemy[parent.position_index]:
+		if BattleSystem.active_action.enemy_targets[parent.position_index]:
 			button.disabled = false
 			target_marker.visible = true
 

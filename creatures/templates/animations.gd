@@ -14,14 +14,14 @@ func _ready() -> void:
 	SignalBus.end_action.connect(_on_end_action)
 
 func _on_end_action():
-	if parent.disabled: return
+	if parent.dead: return
 	if parent.creature.current_hp > 0:
 		_play_animation('Idle')
 		_tween_pos(Vector2.ZERO, 0.2)
 	else:
 		await _tween_pos(Vector2.ZERO, 0.2)
 		death_animation()
-		parent.disabled = true
+		parent.dead = true
 
 func _offset_creature():
 	var display_offset = Vector2(1, 3)
@@ -46,13 +46,13 @@ func _play_animation(animation_name : String) -> void:
 
 ########################################### animations
 func hit_animation():
-	if parent.disabled: return
+	if parent.dead: return
 	await Utils.timer(0.1)
 	_tween_pos(hit_offset, 0.1)
 	_play_animation('Hit')
 
 func attack_animation():
-	if parent.disabled: return
+	if parent.dead: return
 	if rng.randi_range(1, 2) == 1:
 		_play_animation('Attack1')
 	else:
@@ -60,7 +60,7 @@ func attack_animation():
 	_tween_pos(attack_offset, 0.1)
 
 func death_animation():
-	if parent.disabled: return
+	if parent.dead: return
 	_play_animation('Death')
 
 ########################################### animation finished

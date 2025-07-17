@@ -18,4 +18,8 @@ func add_creature(creature : Creature, position_index : int):
 	creature_display.belongs_to_wareband_of_player = player_warband
 	## logistic
 	creatures.add_child(creature_display)
-	BattleSystem.list_of_all_involved_creatures.append(creature_display)
+	BattleSystem.list_of_all_displays.append(creature_display)
+	if player_warband:
+		BattleSystem.list_of_player_displays.append(creature_display)
+	else:
+		BattleSystem.list_of_enemy_displays.append(creature_display)
