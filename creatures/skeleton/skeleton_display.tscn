@@ -203,7 +203,6 @@ animations = [{
 [node name="SkeletonDisplay" instance=ExtResource("1_oc8j2")]
 
 [node name="Idle" parent="Animations" index="0"]
-visible = false
 sprite_frames = SubResource("SpriteFrames_ly65s")
 frame_progress = 0.817538
 
@@ -218,6 +217,7 @@ sprite_frames = SubResource("SpriteFrames_4iqgb")
 frame_progress = 0.17987
 
 [node name="Hit" parent="Animations" index="3"]
+visible = false
 texture = ExtResource("5_utwtj")
 hframes = 4
 frame = 1
