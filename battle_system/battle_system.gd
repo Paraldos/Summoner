@@ -11,6 +11,8 @@ var turn_index: int
 var active_display: CreatureDisplay
 var active_creature: Creature
 var active_action: Action
+var win_message := preload('res://message_system/battle_won_message.tscn')
+var lost_message := preload('res://message_system/battle_lost_message.tscn')
 
 var target : Creature
 var attacker : Creature
@@ -25,7 +27,11 @@ func start_battle(battle : Battle):
 	root.mouse_filter = Control.MOUSE_FILTER_STOP
 	Utils.game_status = GlobalEnums.GameStatus.BATTLE
 	# add warebands
+	for display in list_of_all_displays:
+		display.queue_free()
 	list_of_all_displays = []
+	list_of_player_displays = []
+	list_of_enemy_displays = []
 	warband_player.add_creatures(PlayerData.creatures)
 	warband_enemy.add_creatures(battle.creatures.duplicate())
 	# star first round
@@ -50,9 +56,14 @@ func next_round():
 	next_turn()
 
 func next_turn():
-	turn_index += 1
-	if active_display: active_display.disable()
-	if list_of_all_displays.size() > turn_index:
-		list_of_all_displays[turn_index].enable()
+	if list_of_enemy_displays.all(func(d): return d.dead):
+		Utils.display_message(win_message)
+	elif list_of_player_displays.all(func(d): return d.dead):
+		Utils.display_message(lost_message)
 	else:
-		next_round()
+		turn_index += 1
+		if active_display: active_display.disable()
+		if list_of_all_displays.size() > turn_index:
+			list_of_all_displays[turn_index].enable()
+		else:
+			next_round()

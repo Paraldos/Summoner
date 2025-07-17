@@ -20,3 +20,7 @@ func get_enum_name(enum_dict: Dictionary, value: int) -> String:
 
 func roll_dice(sides : int = 20):
 	return rng.randi_range(1, sides)
+
+func display_message(message : Resource):
+	var new_message = message.instantiate()
+	get_tree().current_scene.add_child(new_message)

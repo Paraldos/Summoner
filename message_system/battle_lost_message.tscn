@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dks71oiku1j76"]
+
+[ext_resource type="PackedScene" uid="uid://rjp54pm4you5" path="res://message_system/message_template.tscn" id="1_ot63v"]
+[ext_resource type="Script" uid="uid://dgng1i6kt40mo" path="res://message_system/battle_lost_message.gd" id="2_hh8s8"]
+[ext_resource type="Script" uid="uid://cv5nug13ucj4n" path="res://classes/btn.gd" id="2_i6f5k"]
+[ext_resource type="Texture2D" uid="uid://ycnkdyq3md22" path="res://assets/images/UI/Skull.png" id="2_jp7lw"]
+
+[node name="BattleLostMessage" instance=ExtResource("1_ot63v")]
+script = ExtResource("2_hh8s8")
+
+[node name="TextureRect" type="TextureRect" parent="ColorRect/PanelContainer" index="0"]
+modulate = Color(1, 1, 1, 0.196078)
+layout_mode = 2
+texture = ExtResource("2_jp7lw")
+expand_mode = 3
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/PanelContainer" index="1"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="ColorRect/PanelContainer/VBoxContainer" index="0"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "You Lost!"
+horizontal_alignment = 1
+
+[node name="Btn" type="Button" parent="ColorRect/PanelContainer/VBoxContainer" index="1"]
+layout_mode = 2
+text = "Accept"
+script = ExtResource("2_i6f5k")
+metadata/_custom_type_script = "uid://cv5nug13ucj4n"
+
+[connection signal="pressed" from="ColorRect/PanelContainer/VBoxContainer/Btn" to="." method="_on_btn_pressed"]

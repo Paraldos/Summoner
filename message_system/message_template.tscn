@@ -1,0 +1,75 @@
+[gd_scene load_steps=6 format=3 uid="uid://rjp54pm4you5"]
+
+[ext_resource type="Theme" uid="uid://d1ojwyofcljvo" path="res://themes/main_theme.tres" id="1_kqjm1"]
+[ext_resource type="Script" uid="uid://w417io8bsfa6" path="res://message_system/message_template.gd" id="1_lqcrr"]
+
+[sub_resource type="Animation" id="Animation_1xca6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_lqcrr"]
+resource_name = "fade_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1xca6"]
+_data = {
+&"RESET": SubResource("Animation_1xca6"),
+&"fade_in": SubResource("Animation_lqcrr")
+}
+
+[node name="MessageTemplate" type="CanvasLayer"]
+script = ExtResource("1_lqcrr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1xca6")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_kqjm1")
+color = Color(0, 0, 0, 0.588235)
+metadata/_edit_lock_ = true
+
+[node name="PanelContainer" type="PanelContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -13.0
+offset_top = -11.0
+offset_right = 13.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
